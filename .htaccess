@@ -1,0 +1,29 @@
+RewriteEngine On
+RewriteBase /
+
+# Allow access to specific PHP files
+<FilesMatch "^favicon\.php$">
+    Allow from all
+</FilesMatch>
+
+# Allow access to specific PHP files
+<Files "index.php">
+    Allow from all
+</Files>
+
+# Deny access to other PHP files
+<Files "index.php">
+    Allow from all
+</Files>
+
+# Allow access to specific directories
+RewriteCond %{REQUEST_URI} !^/frontend/dist/
+RewriteRule ^frontend/.* - [L]
+
+# Rewrite URLs to index.php if not an existing file or directory
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]+\.php)$ index.php [L,QSA]
