@@ -5,6 +5,11 @@
 @custom-media --mobile-tablet (max-width: 800px);
 @custom-media --desktop-tablet (min-width: 801px);
 
+@font-face {
+    font-family: "RobotoFlex";
+    src: url("./fonts/RobotoFlex.ttf");
+}
+
 @import url("./css/base/base.css");
 @import url("./css/components/components.css");
 @import url("./css/elements.css");
@@ -220,4 +225,26 @@ position: absolute !important;;
 .user-text h4,
 .user-text h5 {
     margin: 20px 0;
+}
+.slant {
+    transform: skew(-13deg);
+}
+.slant-inner {
+    transform: skew(13deg);
+}
+.markdown-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    background-color: #0002;
+    outline: 1px solid #fff2;
+    padding: 8px;
+}
+.markdown-content p {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.markdown-content h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
 }

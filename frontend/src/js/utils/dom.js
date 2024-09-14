@@ -11,12 +11,16 @@ export function BlurAll() {
 export function Text(type, text) {
     return Object.assign(document.createElement(type), {"innerText": text});
 }
-export function Image(link, classname) {
-    return Object.assign(document.createElement("img"), {"className": classname, "src": link});
+export function Image(link, classname = null) {
+    var attr = {"src": link};
+    if(classname != null) attr.className = classname;
+    return Object.assign(document.createElement("img"), attr);
 }
 
-export function Div(type = "div", className= "") {
-    return Object.assign(document.createElement(type), {"className": className});
+export function Div(type = "div", classname= null) {
+    var attr = {};
+    if(classname !== null) attr['className'] = classname;
+    return Object.assign(document.createElement(type), attr);
 }
 
 export function AntheraIcon(icon) {

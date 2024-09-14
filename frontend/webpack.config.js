@@ -97,7 +97,7 @@ function getEntryPoints() {
 
     // Read entry point from /src/index.js
     entryPoints['index'] = path.resolve(srcPath, 'index.js');
-    entryPoints['admin'] = path.resolve(srcPath, 'admin.js');
+    entryPoints['portfolio'] = path.resolve(srcPath, 'js/views/portfolio.js');
 
     return entryPoints;
 }

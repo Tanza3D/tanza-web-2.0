@@ -14,11 +14,12 @@ body {
     /* elaboration: if this isn't set tippy sends the tooltip into purgatory out of the viewport */
     /* so for whatever fucking absurd reason we have to do this, i love web dev! i love web dev! i */
     height: 0; /* now it's just getting ridiculous */
+    overflow-x: hidden;
 }
 h1 {
-    font-family: "Roboto Flex", sans-serif;
+    font-family: "RobotoFlex", sans-serif;
     color: #FA31D9;
-    font-stretch: 151;
+    font-stretch: 251%;
     font-variation-settings: 'GRAD' 150, 'XOPQ' 96, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712, 'slnt' 0;
 }
 
