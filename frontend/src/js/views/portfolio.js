@@ -43,7 +43,7 @@ function CreateImage(item) {
     console.log(item);
     var url = item["Images"][0];
     if (!url.startsWith("http")) {
-        url = `https://tanza.me/img/portfolio/${item.ID}/${url}`;
+        url = `/img/portfolio/${item.ID}/medium.png`;
     }
     var img = Image(url);
 
@@ -88,7 +88,7 @@ function CreateImage(item) {
     for(var x = 0; x < item.Images.length; x++) {
         var thisurl = item.Images[x];
         if (!thisurl.startsWith("http")) {
-            thisurl = `https://tanza.me/img/portfolio/${item.ID}/${thisurl}`;
+            thisurl = `/img/portfolio/${item.ID}/${thisurl}`;
         }
         console.log(thisurl)
         content = content.replace(`{IMAGE_${x}}`, thisurl);
@@ -97,7 +97,7 @@ function CreateImage(item) {
         document.getElementById("overlay-title").innerHTML = item.Name;
         document.getElementById("overlay-image").src = url;
         document.getElementById("overlay-content").innerHTML = marked.parse(content);
-        if(item.Link == null) {
+        if(item.Link == null || item.Link == "") {
             document.getElementById("overlay-visit").classList.add("hidden");
         } else {
             document.getElementById("overlay-visit").classList.remove("hidden");

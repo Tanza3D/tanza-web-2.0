@@ -1,0 +1,298 @@
+.cube-outer {
+    margin-top: 100px;
+    margin-left: 100px;
+    pointer-events: none;
+}
+
+.cube-full {
+    transform-style: preserve-3d;
+    perspective: 2400px;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    --speed: 60s;
+}
+
+.cube {
+
+    --width: 152px;
+    --height: 112px;
+    transform-style: preserve-3d;
+    animation: spin var(--speed) infinite linear;
+    position: absolute;
+    width: var(--width);
+    height: var(--height);
+    top: 100px;
+    left: 100px;
+    --offset: 195px;
+}
+
+
+.cube.secondary {
+    animation-delay: calc((-1 * var(--speed)) - (var(--speed) / 16));
+
+}
+
+.cube div {
+
+    filter: drop-shadow(0px 6px 14px #0002);
+    box-shadow: 0px 0px 0px 1px inset #0004;
+    width: var(--width);
+    height: var(--height);
+    line-height: 70px;
+    text-align: center;
+    background: yellow;
+    display: block;
+    position: absolute;
+}
+
+.cube div.right {
+    background: purple;
+    transform: rotateY(90deg);
+    margin-left: var(--offset);
+}
+
+.cube div.left {
+    background: magenta;
+    transform: rotateY(-90deg);
+    margin-left: calc(var(--offset) * -1);
+}
+
+.cube div.front {
+    background: brown;
+    transform: translateZ(var(--offset));
+}
+
+.cube div.back {
+    transform: translateZ(calc(var(--offset) * -1)) rotateX(180deg) scale(-1);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateX(-30deg) rotateZ(60deg) rotateY(20deg);
+    }
+    100% {
+        transform: rotateX(-30deg) rotateZ(60deg) rotateY(740deg);
+    }
+}
+
+
+
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) skew(-13deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) skew(-13deg);
+
+    }
+}
+.portfolio-button {
+    max-width: 1100px;
+    margin: 0px auto;
+    animation: slide-up 1.2s cubic-bezier(0,.19,0,.79);
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
+    margin-top: -30px;
+    height: 250px !important;
+    cursor: pointer;
+}
+.portfolio-button:after, .portfolio-button:before {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform: scaleX(2);
+    height: 200px;
+    z-index: -2;
+    top: 18px;
+    background: var(--tz-upper-less);
+    content: "";
+}
+.portfolio-button:before {
+    background: transparent;
+    background-image: url('data:image/svg+xml,<svg width="793" height="464" viewBox="0 0 793 464" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_f_3_2)"><rect x="237" y="200" width="320" height="64" fill="%23DD6FFF"/></g><g filter="url(%23filter1_f_3_2)"><rect x="214" y="216" width="366" height="32" fill="%23DD6FFF"/></g><g filter="url(%23filter2_f_3_2)"><rect x="146" y="200" width="502" height="64" fill="%23DD6FFF"/></g><g filter="url(%23filter3_f_3_2)"><rect x="201" y="210" width="392" height="44" fill="%23DD6FFF"/></g><g filter="url(%23filter4_f_3_2)"><rect x="199" y="216" width="396" height="32" fill="%23C300FF"/></g><g filter="url(%23filter5_f_3_2)"><rect x="146" y="222" width="502" height="20" fill="%23C300FF"/></g><g filter="url(%23filter6_f_3_2)"><rect x="121" y="205" width="552" height="54" fill="%23DD6FFF"/></g><g filter="url(%23filter7_f_3_2)"><rect x="237" y="205" width="320" height="54" fill="white"/></g><defs><filter id="filter0_f_3_2" x="37" y="0" width="720" height="464" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter1_f_3_2" x="114" y="116" width="566" height="232" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter2_f_3_2" x="46" y="100" width="702" height="264" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter3_f_3_2" x="101" y="110" width="592" height="244" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter4_f_3_2" x="99" y="116" width="596" height="232" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter5_f_3_2" x="66" y="142" width="662" height="180" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter6_f_3_2" x="41" y="125" width="712" height="214" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_3_2"/></filter><filter id="filter7_f_3_2" x="137" y="105" width="520" height="254" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_3_2"/></filter></defs></svg>');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    transform: scaleX(1) scaleY(1);
+    transition: all 0.3s ease;
+}
+.portfolio-button:hover:before {
+    transform: scaleX(1.8);
+}
+
+.portfolio-button .slant-inner {
+    position: relative;
+    height: 200px;
+}
+
+.portfolio-button .slant-inner .padding {
+    z-index: 9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    pointer-events: none;
+    margin-left: 180px;
+    padding-top: 30px;
+}
+
+.portfolio-button .cube-full {
+    z-index: -8;
+    position: absolute;
+    top: -30px;
+    left: -21px;
+    width: calc(100% + 12px);
+}
+
+.portfolio-button .slant-inner .padding h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+    margin-left: -20px;
+    transition: all 0.4s ease;
+    font-weight: 300;
+}
+
+.portfolio-button .slant-inner .padding p {
+    max-width: 500px;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.intercect {
+    background: var(--tz-upper);
+    width: 100%;
+    height: 270px;
+    position: absolute;
+    top: 10px; /* Match cube's position */
+    left: 16px; /* Match cube's position */
+    transform-style: preserve-3d;
+    transform: translateZ(-20px) skew(-13deg); /* Place it inside the cube */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: all 0.5s ease;
+}
+.portfolio-button:hover .intercect {
+    width: calc(100% + 50px);
+    left: calc(16px - 25px);
+}
+
+.portfolio-button .intercect-hover-bg {
+    opacity: 0;
+    transform: scale(1.3) translateX(500px) translateY(100px) rotate(10deg);
+    filter: blur(400px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to bottom right, #FA31D9, #dd6fff);
+    transition: all 0.4s ease;
+}
+
+
+
+.portfolio-button:hover .intercect .intercect-hover-bg {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: blur(20px);
+}
+
+
+.portfolio-button .intercect .sparkles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.portfolio-button .intercect .sparkles * {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+@keyframes s1 {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes s2 {
+    0% {
+        background-position: 0% 0%;
+        transform: rotate(0deg);
+    }
+    100% {
+        background-position: 100% -100%;
+        transform: rotate(360deg);
+    }
+}
+
+
+.portfolio-button .intercect .sparkles .sparkles-1 {
+    background-image: url('data:image/svg+xml,<svg width="309" height="309" viewBox="0 0 309 309" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M254.399 150.316C254.549 149.4 255.758 149.165 256.24 149.958L257.761 152.459C257.913 152.708 258.166 152.879 258.454 152.926L261.342 153.399C262.258 153.549 262.493 154.758 261.7 155.24L259.199 156.761C258.95 156.913 258.779 157.166 258.732 157.454L258.259 160.342C258.109 161.258 256.9 161.493 256.418 160.7L254.897 158.2C254.745 157.95 254.492 157.78 254.204 157.732L251.316 157.259C250.4 157.109 250.165 155.9 250.958 155.418L253.459 153.897C253.708 153.746 253.879 153.492 253.926 153.204L254.399 150.316Z" fill="%23D9D9D9"/><path d="M272.861 42.2872C273.011 41.3711 274.22 41.1361 274.702 41.9292L276.985 45.6831C277.137 45.9324 277.39 46.1031 277.678 46.1503L282.014 46.8606C282.93 47.0107 283.165 48.2194 282.372 48.7018L278.618 50.985C278.368 51.1367 278.198 51.3897 278.151 51.6777L277.44 56.0136C277.29 56.9297 276.081 57.1647 275.599 56.3716L273.316 52.6177C273.164 52.3683 272.911 52.1977 272.623 52.1505L268.287 51.4402C267.371 51.2901 267.136 50.0813 267.929 49.5989L271.683 47.3158C271.933 47.1641 272.103 46.9111 272.15 46.6231L272.861 42.2872Z" fill="%23D9D9D9"/><path d="M47.963 156.814C48.113 155.898 49.3218 155.663 49.8042 156.456L51.8705 159.853C52.0222 160.103 52.2752 160.273 52.5632 160.32L56.4873 160.963C57.4034 161.113 57.6384 162.322 56.8453 162.804L53.4479 164.871C53.1986 165.022 53.0279 165.275 52.9807 165.564L52.3379 169.488C52.1878 170.404 50.9791 170.639 50.4967 169.846L48.4303 166.448C48.2787 166.199 48.0256 166.028 47.7376 165.981L43.8135 165.338C42.8974 165.188 42.6624 163.979 43.4555 163.497L46.8529 161.431C47.1023 161.279 47.2729 161.026 47.3201 160.738L47.963 156.814Z" fill="%23D9D9D9"/><path d="M157.665 205.608C158.53 205.271 159.348 206.191 158.912 207.01L157.143 210.329C157.006 210.586 156.988 210.891 157.094 211.163L158.463 214.665C158.8 215.53 157.88 216.348 157.061 215.912L153.742 214.143C153.485 214.006 153.18 213.988 152.908 214.095L149.406 215.463C148.541 215.8 147.723 214.88 148.159 214.061L149.928 210.742C150.065 210.485 150.083 210.18 149.977 209.908L148.608 206.406C148.271 205.541 149.191 204.723 150.01 205.159L153.329 206.928C153.586 207.065 153.891 207.083 154.163 206.977L157.665 205.608Z" fill="%23D9D9D9"/></svg>');
+    animation: s1 99.4s infinite linear;
+}
+
+.portfolio-button .intercect .sparkles .sparkles-2 {
+    background-image: url('data:image/svg+xml,<svg width="309" height="309" viewBox="0 0 309 309" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M63.8044 243.66C64.3377 242.9 65.5285 243.214 65.6183 244.138L66.037 248.448C66.0652 248.738 66.2189 249.002 66.4578 249.17L70.0024 251.658C70.7623 252.191 70.4486 253.382 69.5246 253.471L65.2143 253.89C64.9238 253.918 64.6602 254.072 64.4925 254.311L62.0046 257.856C61.4713 258.615 60.2806 258.302 60.1908 257.378L59.7721 253.067C59.7439 252.777 59.5902 252.513 59.3513 252.346L55.8066 249.858C55.0468 249.324 55.3605 248.134 56.2844 248.044L60.5947 247.625C60.8852 247.597 61.1489 247.443 61.3166 247.204L63.8044 243.66Z" fill="%23D9D9D9"/><path d="M137.345 73.3032C137.185 72.3889 138.248 71.7681 138.965 72.3575L143.609 76.1741C143.835 76.3594 144.13 76.437 144.417 76.3864L150.338 75.3454C151.252 75.1846 151.873 76.248 151.284 76.9652L147.467 81.6092C147.282 81.8347 147.204 82.1299 147.255 82.4173L148.296 88.3377C148.456 89.252 147.393 89.8728 146.676 89.2834L142.032 85.4668C141.806 85.2815 141.511 85.2039 141.224 85.2545L135.303 86.2955C134.389 86.4563 133.768 85.3929 134.358 84.6757L138.174 80.0317C138.36 79.8062 138.437 79.511 138.387 79.2235L137.345 73.3032Z" fill="%23D9D9D9"/><path d="M43.566 54.738C44.4943 54.7338 44.9268 55.8868 44.2248 56.4942L42.2541 58.1993C42.0334 58.3902 41.9072 58.6681 41.9085 58.96L41.9201 61.5658C41.9242 62.4941 40.7713 62.9266 40.1639 62.2246L38.4588 60.254C38.2678 60.0333 37.99 59.907 37.6981 59.9083L35.0923 59.9199C34.164 59.9241 33.7315 58.7711 34.4335 58.1637L36.4041 56.4586C36.6248 56.2677 36.7511 55.9898 36.7498 55.698L36.7382 53.0921C36.734 52.1638 37.887 51.7313 38.4944 52.4333L40.1994 54.4039C40.3904 54.6246 40.6683 54.7509 40.9601 54.7496L43.566 54.738Z" fill="%23D9D9D9"/><path d="M223.603 253.879C223.753 252.963 224.962 252.728 225.444 253.521L228.827 259.084C228.979 259.333 229.232 259.504 229.52 259.551L235.945 260.603C236.861 260.753 237.096 261.962 236.303 262.444L230.741 265.827C230.491 265.979 230.32 266.232 230.273 266.52L229.221 272.945C229.071 273.861 227.862 274.096 227.38 273.303L223.997 267.741C223.845 267.491 223.592 267.321 223.304 267.273L216.879 266.221C215.963 266.071 215.728 264.862 216.521 264.38L222.083 260.997C222.333 260.845 222.503 260.592 222.551 260.304L223.603 253.879Z" fill="%23D9D9D9"/></svg>');
+    animation: s2 190.4s infinite linear;
+}
+
+.portfolio-button .intercect .sparkles * {
+    background-size: 190px;
+}
+
+.portfolio-button .intercect .sparkles {
+    opacity: 0;
+    transition: opacity 0.8s ease !important;
+    mix-blend-mode: overlay;
+}
+.portfolio-button .intercect > i {
+    position: absolute;
+    font-size: 360px;
+    opacity: 0.1;
+    transform: skew(13deg) translateX(-100px) translateY(-80px) rotate(-120deg);
+    z-index: 9;
+}
+.portfolio-button:hover .intercect .sparkles {
+    opacity: 1;
+    display: inherit;
+}
+.portfolio-button .intercect .right-ping {
+    position: absolute;
+    font-size: 60px;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%) skew(13deg);
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    opacity: 0.4;
+    transition: all 0.4s ease;
+}
+.portfolio-button:hover .intercect .right-ping {
+    right: 30px;
+    opacity: 1;
+}
+.portfolio-button:hover h1 {
+    color: white;
+    font-weight: 800 !important;
+}
+.cube div {
+    background-image: var(--bg) !important;
+    background-position: center !important;
+    background-size: cover !important;
+    backface-visibility: hidden !important;
+}
+.cube.backface div {
+    backface-visibility: visible !important;
+    opacity: 0.4;
+}

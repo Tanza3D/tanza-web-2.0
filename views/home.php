@@ -28,4 +28,92 @@
         </div>
     </div>
 </div>
-Homepage
+
+<style>
+    .cube .c1 {
+        --bg: url("/img/portfolio/1702683847/medium.png");
+    }
+
+    .cube .c2 {
+        --bg: url("/img/portfolio/1689974653/medium.png");
+    }
+
+    .cube .c3 {
+        --bg: url("/img/portfolio/1692901724/medium.png");
+    }
+
+    .cube .c4 {
+        --bg: url("/img/portfolio/1689973991/medium.png");
+    }
+
+    .cube .c5 {
+        --bg: url("https://untonemusic.com/img/release/iridescent/cover.jpg");
+    }
+
+    .cube .c7 {
+        --bg: url("/img/portfolio/1713826098/medium.png");
+    }
+
+    .cube .c6 {
+        --bg: url("/img/portfolio/1729382724/medium.png");
+    }
+
+    .cube .c8 {
+        --bg: url("/img/portfolio/1729382704/2.png");
+    }
+</style>
+<div class="page-container">
+    <div class="slant portfolio-button">
+        <div class="slant-inner">
+            <div class="cube-outer">
+                <div class="cube-full">
+                    <div class="cube">
+                        <div class="right c1"></div>
+                        <div class="left c2"></div>
+                        <div class="front c3"></div>
+                        <div class="back c4"></div>
+                    </div>
+                    <div class="cube secondary">
+                        <div class="right c5"></div>
+                        <div class="left c6"></div>
+                        <div class="front c7"></div>
+                        <div class="back c8"></div>
+                    </div>
+
+
+                    <div class="cube backface">
+                        <div class="right c1"></div>
+                        <div class="left c2"></div>
+                        <div class="front c3"></div>
+                        <div class="back c4"></div>
+                    </div>
+                    <div class="cube secondary backface">
+                        <div class="right c5"></div>
+                        <div class="left c6"></div>
+                        <div class="front c7"></div>
+                        <div class="back c8"></div>
+                    </div>
+
+                    <div class="intercect">
+                        <i class="iconoir-design-pencil"></i>
+                        <div class="intercect-hover-bg"></div>
+                        <div class="sparkles slant-inner">
+                            <div class="sparkles-1"></div>
+                            <div class="sparkles-2"></div>
+                        </div>
+                        <div class="slant-inner right-ping">
+                            <i class="iconoir-fast-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="padding">
+                <div>
+                    <h1>Portfolio</h1>
+                    <p>View all of my website, logo, cover, and product work, all in one place</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slant test"></div>
+</div>

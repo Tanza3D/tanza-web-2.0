@@ -19,6 +19,9 @@
     <link id="favicon" rel="icon" href="/favicon.svg">
     <meta name="darkreader-lock">
     <title>Tanza</title>
+
+
+    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css">
 </head>
 
 <body>
@@ -34,6 +37,7 @@
 </div>
 </body>
 
+<script src="/frontend/dist/<?= $pagename ?>.bundle.js" type="module"></script>
 
 <script rel="preload" src="/frontend/dist/index.bundle.js" type="module"></script>
 </html>

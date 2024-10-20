@@ -49,6 +49,8 @@ body, .col-reset, .warning {
 
 
     --tz-background: hsl(var(--hue), calc(18% * var(--sat)), calc(10% * var(--val)));
+    --tz-upper-less: hsl(var(--hue), calc(18% * var(--sat)), calc(15% * var(--val)));
+
     --tz-upper: hsl(var(--hue), calc(18% * var(--sat)), calc(19% * var(--val)));
     --tz-text: hsl(var(--hue), calc(100% * var(--sat)), calc(97% * var(--val)));
     --tz-selected: hsl(var(--hue), calc(100% * var(--sat)), calc(97% * var(--val)));

@@ -23,6 +23,7 @@ if(php_sapi_name() == "cli") {
 function Page($page, $vars = []) {
     ob_start();
     include "views/$page.php";
+    $pagename = $page;
     $page = ob_get_clean();
     include("frontend.php");
 }
@@ -37,6 +38,9 @@ $router->get("/portfolio", function() {
 $router->get("/gallery", function() {
     Page("gallery");
 });
+
+
+include("admin.php");
 
 
 $router->set404(function() {

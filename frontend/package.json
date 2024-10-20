@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.8.1",
+    "ignore-loader": "^0.1.2",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-custom-media": "^10.0.4",
     "style-loader": "^3.3.3",

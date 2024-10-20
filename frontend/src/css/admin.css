@@ -1,0 +1,24 @@
+.pages {
+    padding-top: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    min-height: 100vh;
+}
+
+.admin_header {
+    padding: 16px 30px;
+    background: #333;
+    font-size: 28px;
+    font-weight: 200;
+}
+.admin_header strong {
+    font-weight: 800;
+}
+* {
+    --hue: 0 !important;
+    --sat: 0 !important;
+    --accent-1: #ffffff !important;
+    --accent-2: #ffffff !important;
+    --accent-3: #ffffff !important;
+}

@@ -2,7 +2,7 @@
 
 use Database\Connection;
 
-$items = Connection::execSimpleSelect("SELECT * FROM Portfolio");
+$items = Connection::execSimpleSelect("SELECT * FROM Portfolio WHERE Visible = 1");
 
 $extra = \Database\Memcache::get("covers");
 
@@ -18,11 +18,7 @@ foreach ($extra as $e) $items[] = $e;
 
 
 usort($items, function ($a, $b) {
-    $dateA = strtotime($a['Date']);
-    $dateB = strtotime($b['Date']);
-
-    // Sort in descending order (most recent first)
-    return $dateB - $dateA;
+    return strtotime($b['Date']) - strtotime($a['Date']);
 });
 
 //foreach($items as $item) $item['Images'] = json_decode($item['Images'], true);
@@ -48,7 +44,7 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
                 <h1>PORTFOLIO</strong></h1>
             </div>
         </div>
-        <div class="buttons slant">
+        <!--<div class="buttons slant">
             <div class="selected">
                 <div class="slant-inner">
                     one<i class="iconoir-hand-brake"></i>
@@ -68,7 +64,7 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
         <div class="buttons-info">
             <div class="left">browsing “Branding” group</div>
             <div class="right">92 items</div>
-        </div>
+        </div>-->
     </div>
     <div class="header-right">
         <div class="header-image slant">
@@ -98,4 +94,3 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
         <h1>good morning</h1>
     </div>
 </div>
-<script src="/frontend/dist/portfolio.bundle.js" type="module"></script>

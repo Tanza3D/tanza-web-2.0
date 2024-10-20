@@ -1,4 +1,3 @@
-import {LucideIcon} from "../utils/dom";
 
 class ImageArea extends HTMLElement {
     files = []
@@ -100,6 +99,7 @@ class ImageArea extends HTMLElement {
     }
 
     connectedCallback(props) {
+        this.maxFiles = this.getAttribute("max-files");
         setTimeout(() => {
             if(this.getAttribute("drag-when-set") != null) this.dragWhenSet = true;
             if(this.getAttribute("preview") === "false") this.preview = false;
@@ -149,7 +149,6 @@ class ImageArea extends HTMLElement {
             this.el_dragged = file_dragged;
 
             if (generate_ui) {
-                var icon = LucideIcon("image-plus");
                 var texts = Object.assign(document.createElement("div"), {"className": "texts"});
 
                 var h1 = Object.assign(document.createElement("h1"), {"innerText": "Drag image here"});
@@ -167,7 +166,6 @@ class ImageArea extends HTMLElement {
                 hover_overlay.appendChild(text);
 
                 this.appendChild(element);
-                element.appendChild(icon);
                 element.appendChild(texts);
 
             }
@@ -197,7 +195,7 @@ class ImageArea extends HTMLElement {
             }
             if(this.getAttribute("prefill")) {
                 this.files = [this.getAttribute("prefill")]
-                    this.updatePreview();
+                this.updatePreview();
 
             }
         }, 1);
