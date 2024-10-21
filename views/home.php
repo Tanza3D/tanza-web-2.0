@@ -73,17 +73,19 @@ for($x = 0; $x < 16; $x++) {
         animation-delay: -<?= $x ?>s !important;
         --length: <?= 15 - $x ?>s;
     }
+
     .globe.big .v<?= $x+1 ?> {
-        animation-delay: -<?= $x*2 ?>s !important;
+        animation-delay: -<?= $x*5 ?>s !important;
         --length: <?= 50 - $x ?>s;
     }
+
     <?php
 }
  ?>
 </style>
 
 <div class="page-container">
-    <div class="slant portfolio-button">
+    <a class="slant portfolio-button" href="/portfolio">
         <div class="slant-inner">
             <div class="cube-outer">
                 <div class="cube-full">
@@ -134,12 +136,33 @@ for($x = 0; $x < 16; $x++) {
                 </div>
             </div>
         </div>
-    </div>
+    </a>
     <div class="slant test"></div>
 </div>
 
+<div class="page-container two-button">
+
+    <a class="slant" href="/gallery">
+        <div class="image">
+            <img class="slant-inner" src="https://tanza.me/img/gallery/original/1700516349_pool.png">
+        </div>
+        <div class="slant-inner">
+            <h1>My Art</h1>
+        </div>
+    </a>
+
+    <a class="slant" href="https://untonemusic.com/profile/tanza">
+        <div class="image">
+            <img class="slant-inner" src="https://untonemusic.com/img/release/aurora-dunes/cover.jpg">
+        </div>
+        <div class="slant-inner">
+            <h1>My Music</h1>
+        </div>
+    </a>
+</div>
+
 <div class="follow">
-    <div class="globe">
+    <!--<div class="globe">
         <div class="x1 v1"></div>
         <div class="x1 v2"></div>
         <div class="x1 v3"></div>
@@ -149,7 +172,7 @@ for($x = 0; $x < 16; $x++) {
         <div class="x2 v2"></div>
         <div class="x2 v3"></div>
         <div class="x2 v4"></div>
-    </div>
+    </div>-->
 
     <div class="globe big">
         <div class="x1 v1"></div>
@@ -162,12 +185,85 @@ for($x = 0; $x < 16; $x++) {
         <div class="x2 v3"></div>
         <div class="x2 v4"></div>
     </div>
+
+    <div class="globe big bigger">
+        <div class="x1 v1"></div>
+        <div class="x1 v2"></div>
+        <div class="x1 v3"></div>
+
+        <div class="x2 v1"></div>
+        <div class="x2 v2"></div>
+        <div class="x2 v3"></div>
+    </div>
     <div class="inner">
-    <h1>Follow Me</h1>
-        <div class="button-row">
-            <div class="social-button">
-                <i simple-icon="twitter"></i>
+        <h1>Around The Web</h1>
+        <div class="button-row socials">
+            <?php
+            // this isn't too clean but saves alot of time
+            function button($icon, $name, $link, $colour = "#F83CF6")
+            {
+                ?>
+                <a class="social-button" href="<?= $link ?>" style="--col: <?= $colour ?>;">
+                    <div>
+                        <i icon="<?= $icon ?>"></i>
+                        <h1><?= $name ?></h1>
+                    </div>
+                </a>
+                <?php
+            }
+
+            button("github", "Github", "https://github.com/Tanza3D", "#4479C5");
+            button("linkedin", "LinkedIn", "https://www.linkedin.com/in/archie-/", "#1469C7");
+            button("bluesky", "Bluesky", "https://bsky.app/profile/tanza.me", "#3A9EFD");
+            button("twitch", "Twitch", "https://twitch.tv/tanza3d", "#944DFF");
+            button("osu", "osu!", "https://osu.ppy.sh/users/10379965", "#ff66aa");
+            button("lastdotfm", "Last.fm", "https://www.last.fm/user/Tanza3D", "#E4222A");
+            button("discord", "Discord", "discord", "#1D23BE");
+            ?>
+        </div>
+    </div>
+</div>
+<div class="page-container">
+    <div class="work-grid">
+        <?php
+        function project($title, $name, $link, $button, $about) {
+?>
+            <div class="slant projectpanel" style="--bg: url('/public/img/home/<?= $title ?>.png')">
+                <div class="slant-inner">
+                    <div class="logo"><img src="/public/img/home/<?= $title ?>.svg"></div>
+                    <div class="bottom slant">
+                        <div class="slant-inner">
+                            <p><?= $about ?></p>
+                        </div>
+                        <a class="button cta" href="https://untone.uk">
+                            <span class="slant-inner"><?= $button ?></span>
+                        </a>
+
+                    </div>
+                </div>
             </div>
+        <?php
+        }
+        ?>
+        <div>
+            <?php
+            project("untone", "UNTONE", "https://untone.uk", "Learn More",
+            "UNTONE is a group of developers, designers, and musicians creating websites, music,
+                                games, and more. I lead the group alongside Guus!");
+            ?>
+        </div>
+        <div class="project-row">
+            <?php
+            project("osekai", "Osekai", "https://osekai.net", "Visit",
+                "Osekai is a website I developed and designed for the the rhythm game osu!, 
+                providing users with medal solutions, custom leaderboards, and more!");
+            ?>
+
+            <?php
+            project("untonemusic", "UNTONE Music", "https://untonemusic.com", "Learn More",
+                "UNTONE Music is a popular record label owned by UNTONE, publishing and 
+                marketing electronic music from artists all around the world");
+            ?>
         </div>
     </div>
 </div>

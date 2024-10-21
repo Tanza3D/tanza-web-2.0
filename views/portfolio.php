@@ -75,7 +75,7 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
 </div>
 <div class="full-page-divider"></div>
 <div class="page-container">
-    <div class="portfolio-grid" id="portfolio-grid">
+    <div class="portfolio-grid hide" id="portfolio-grid">
 
     </div>
 </div>

@@ -185,6 +185,12 @@ z-index: -1;
 .portfolio-grid {
     display: flex;
     flex-direction: column;
+    transition: all 0.2s ease;
+}
+.portfolio-grid.hide {
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
 }
 
 layout-bigcoverany > * {

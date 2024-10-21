@@ -186,3 +186,50 @@
 .header-small h1 {
     font-weight: 800;
 }
+
+@media (max-width: 1200px) {
+    .header {
+        flex-direction: column-reverse !important;
+    }
+    .header-left {
+        margin-top: -150px;
+    }
+    .header-left p {
+        padding-right: 0px;
+    }
+    .header-right {
+        width: 100vw;
+        max-width: calc(100vw - 300px);
+    }
+}
+@media (max-width: 900px) {
+
+    .header-right {
+        width: 100vw;
+        max-width: calc(100vw - 100px);
+    }
+    .header-left {
+        margin-top: 0px;
+        width: 100vw;
+        max-width: calc(100vw - 200px);
+    }
+    .header .header-image {
+        height: 300px !important;
+    }
+    .header-left h1 {
+        font-size: 40px;
+    }
+    .header-left p {
+        font-size: 20px;
+    }
+    .header-left-bg .slant-inner {
+        padding: 40px 90px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .header .header-image {
+        height: 250px !important;
+    }
+}

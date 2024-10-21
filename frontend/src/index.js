@@ -12,6 +12,37 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'
 
 
+// TODO: sort through music services. we don't need them
+import {
+    siDiscord,
+    siBeatport,
+    siBandcamp,
+    siLastdotfm,
+    siYoutube,
+    siBluesky,
+    siInstagram,
+    siPatreon,
+    siTwitch,
+    siGithub,
+    siOsu,
+    siLinkedin
+} from 'simple-icons';
+
+const icons = {
+    siDiscord,
+    siBeatport,
+    siBandcamp,
+    siLastdotfm,
+    siYoutube,
+    siBluesky,
+    siInstagram,
+    siPatreon,
+    siTwitch,
+    siGithub,
+    siOsu,
+    siLinkedin
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     var targetNode = document.body;
     var config = {
@@ -25,6 +56,25 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             element.removeAttribute("tooltip");
         }
+
+
+        const elements = document.querySelectorAll("[icon]");
+
+        elements.forEach(element => {
+            const iconName = element.getAttribute("icon");
+
+            var icon = Object.keys(icons).find(key => key.toLowerCase() === ("si" + iconName).toLowerCase());
+            var custom = false;
+
+            if (icon) {
+                const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                console.log(icons[icon]);
+                svgElement.innerHTML = icons[icon].svg;
+                element.replaceWith(svgElement);
+            } else {
+                console.log(`Icon '${iconName}' not found`);
+            }
+        });
     };
     callback();
     var observer = new MutationObserver(callback);
