@@ -62,6 +62,26 @@
         --bg: url("/img/portfolio/1729382704/2.png");
     }
 </style>
+
+<style>
+    <?php
+
+for($x = 0; $x < 16; $x++) {
+    ?>
+
+    .globe .v<?= $x+1 ?> {
+        animation-delay: -<?= $x ?>s !important;
+        --length: <?= 15 - $x ?>s;
+    }
+    .globe.big .v<?= $x+1 ?> {
+        animation-delay: -<?= $x*2 ?>s !important;
+        --length: <?= 50 - $x ?>s;
+    }
+    <?php
+}
+ ?>
+</style>
+
 <div class="page-container">
     <div class="slant portfolio-button">
         <div class="slant-inner">
@@ -116,4 +136,38 @@
         </div>
     </div>
     <div class="slant test"></div>
+</div>
+
+<div class="follow">
+    <div class="globe">
+        <div class="x1 v1"></div>
+        <div class="x1 v2"></div>
+        <div class="x1 v3"></div>
+        <div class="x1 v4"></div>
+
+        <div class="x2 v1"></div>
+        <div class="x2 v2"></div>
+        <div class="x2 v3"></div>
+        <div class="x2 v4"></div>
+    </div>
+
+    <div class="globe big">
+        <div class="x1 v1"></div>
+        <div class="x1 v2"></div>
+        <div class="x1 v3"></div>
+        <div class="x1 v4"></div>
+
+        <div class="x2 v1"></div>
+        <div class="x2 v2"></div>
+        <div class="x2 v3"></div>
+        <div class="x2 v4"></div>
+    </div>
+    <div class="inner">
+    <h1>Follow Me</h1>
+        <div class="button-row">
+            <div class="social-button">
+                <i simple-icon="twitter"></i>
+            </div>
+        </div>
+    </div>
 </div>

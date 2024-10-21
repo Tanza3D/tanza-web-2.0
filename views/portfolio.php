@@ -41,7 +41,8 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
                     <path d="M44 0L70.9971 9.77559e-06L54.5527 15.1428L44 15.1428V0Z" fill="#5A1FFF"/>
                     <path d="M81 37.8572H60.4444L81 18.9286V3.89742e-05L44 34.0714V53H81V37.8572Z" fill="#5A1FFF"/>
                 </svg>
-                <h1>PORTFOLIO</strong></h1>
+                <h1>PORTFOLIO</h1>
+                <p>On this page, you can find all the design work I've done, including company branding, website design, product design, and more! Website design will also include information on the development process!</p>
             </div>
         </div>
         <!--<div class="buttons slant">
@@ -86,10 +87,12 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
             <h1 class="slant-inner" id="overlay-title">Very cool super long title which wraps to the second line!!!</h1>
             <div class="color-bars"></div>
         </div>
+
         <a class="slant visit" id="overlay-visit">
             <h1 class="slant-inner" id="visit-text">Visit Page</h1>
         </a>
     </div>
+
     <div class="portfolio-overlay-content markdown-content" id="overlay-content">
         <h1>good morning</h1>
     </div>

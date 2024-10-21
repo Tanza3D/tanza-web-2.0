@@ -17,7 +17,7 @@ function generateItem(item) {
 
     var edit = Div("a", "button");
     edit.innerText = "Edit";
-    edit.href = "./portfolio/" + item.ID;
+    edit.href = "/admin/portfolio/" + item.ID;
     div.appendChild(edit);
 
     if(item.Visible === 0) {
@@ -54,7 +54,7 @@ async function Load() {
         formData.append("id", id); // don't ask
 
         xhr.onload = () => {
-            //location.href = "/admin/portfolio/" + id;
+            location.href = "/admin/portfolio/" + id;
         }
 
         xhr.send(formData);

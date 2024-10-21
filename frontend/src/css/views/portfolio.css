@@ -291,15 +291,28 @@ layout-bigcoverany > * {
 .portfolio-overlay-cover {
     position: relative;
 }
-.portfolio-overlay-cover .visit {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 15px 20px;
+.portfolio-overlay .visit {
+
     background: var(--tz-upper);
     font-size: 12px;
-    border-left: 6px solid #66ADFF;
-    max-width: 250px;
+    border-left: 6px solid #FA33D9;
+    width: 500px;
+    max-width: 90vw;
+    margin-left: auto;
+    display: flex;
+    padding: 30px;
+    font-size: 20px;
+    margin-top: 5px;
+    transition: all 0.2s ease;
+}
+
+.portfolio-overlay .visit:hover {
+    border-left: 25px solid #FA33D9;
+    background: #ff6ee5;
+}
+.portfolio-overlay .visit:hover h1 {
+
+    color: white !important;
 }
 .portfolio-overlay-open {
     opacity: 1;
@@ -319,7 +332,7 @@ layout-bigcoverany > * {
     margin-right: auto;
     min-width: 40%;
     margin-top: -60px;
-    background: var(--tz-upper);
+    background: var(--tz-upper-less);
     font-size: 26px;
     max-width: calc(100% - 300px);
 }

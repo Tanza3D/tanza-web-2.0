@@ -10,6 +10,7 @@ class Portfolio
 {
     static function UploadNew($files, $id)
     {
+        print_r($files);
         $files_names = [];
 
         $folder = $_SERVER['DOCUMENT_ROOT'] . "/img/portfolio/" . $id;
@@ -18,11 +19,17 @@ class Portfolio
 
         $image = imagecreatefromstring(file_get_contents($files[0]["tmp_name"]));
 
-        $medium = Transform::ResizeStr($image, 640, "height", 3);
-        $small = Transform::ResizeStr($image, 250, "height", 3);
-
         $originalHeight = imagesy($image);
         $originalWidth = imagesx($image);
+
+
+        if($originalHeight > $originalWidth+2) {
+            // tall image!
+            $medium = Transform::ResizeStr($image, 900, "width", 3);
+        } else {
+            $medium = Transform::ResizeStr($image, 600, "height", 3);
+        }
+        $small = Transform::ResizeStr($image, 250, "height", 3);
 
         $gcd = General::gcd($originalWidth, $originalHeight);
 

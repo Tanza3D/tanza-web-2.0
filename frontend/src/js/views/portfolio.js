@@ -196,7 +196,7 @@ var layouts = {
     }
 }
 
-var layoutOrder = ["BigCoverAny", "SideBySideBanner", "OneTwoThree", "SideBySideBanner", "AlbumRow", "SideBySideBanner", "BigCover", "OneTwoThree", "SideBySide", "SideBySideThree", "BigCover", "SideBySideBanner", "OneTwoThree", "AlbumRow", "SideBySideWebsite", "OneTwoThree", "BrandingArea", "SideBySideBanner", "BigCover", "SideBySideBanner", "SideBySideWebsite", "OneTwoThree", "BrandingArea", "AlbumRow", "SideBySideThree", "BigCover", "OneTwoThree", "BrandingArea", "BigCover", "AlbumRow", "SideBySide", "SideBySideBanner", "OneTwoThree", "BigCover", "BrandingArea", "AlbumRow", "OneTwoThree", "BigCover"];
+var layoutOrder = ["BigCoverAny", "OneTwoThree", "BrandingArea", "SideBySideBanner", "SideBySideWebsite", "OneTwoThree", "SideBySideBanner", "AlbumRow", "SideBySideBanner", "BigCover", "OneTwoThree", "SideBySide", "SideBySideThree", "BigCover", "SideBySideBanner", "OneTwoThree", "AlbumRow", "SideBySideWebsite", "OneTwoThree", "BrandingArea", "SideBySideBanner", "BigCover", "SideBySideBanner", "SideBySideWebsite", "OneTwoThree", "BrandingArea", "AlbumRow", "SideBySideThree", "BigCover", "OneTwoThree", "BrandingArea", "BigCover", "AlbumRow", "SideBySide", "SideBySideBanner", "OneTwoThree", "BigCover", "BrandingArea", "AlbumRow", "OneTwoThree", "BigCover"];
 
 var grid = document.getElementById("portfolio-grid");
 
