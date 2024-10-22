@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body class="news">
+    <div class="dragdrop hidden" id="dragdrop">Drop to set!</div>
+    <div class="sidebar">
+        <h1>osu! Image Visualizer</h1>
+        <p>Drag a file anywhere in this window, or CTRL+V it, to set it as the news banner!</p>
+        <div class="tab tab-sel" onclick="news(this)">News</div>
+        <div class="tab" onclick="badges(this)">Badges</div>
+    </div>
+    <div class="badges-content content">
+       <h2>Comin soon :)</h2>
+    </div>
+    <div class="news-content content" id="newspost-items">
+        <div class="newspost newspost-homepage">
+            <div class="newspost-image"></div>
+
+            <div class="newspost-homepage-inner">
+                <div class="newspost-homepage-date">
+                    <h1>16</h1>
+                    <p>Dec 2023</p>
+                </div>
+                <div class="newspost-homepage-texts">
+                    <h1>Newspost on homepage logged in</h1>
+                    <p>Long description text goes here. Reasonably long, two lines, gotta keep typing!</p>
+                </div>
+            </div>
+        </div>
+        <div class="newspost newspost-listing">
+            <div class="newspost-image"></div>
+
+            <div class="newspost-listing-inner">
+                <h1>Newspost on news history page</h1>
+                <p>Long description text goes here. Reasonably long, two lines, gotta keep typing!</p>
+                <small>by <strong>You & Me</strong></small>
+            </div>
+        </div>
+        <div class="newspost newspost-loggedout small">
+            <div class="newspost-image"></div>
+
+            <div class="newspost-loggedout-inner">
+                <h1>Small newspost on homepage logged out</h1>
+                <small>by <strong>You & Me</strong></small>
+            </div>
+        </div>
+        <div class="newspost newspost-loggedout">
+            <div class="newspost-image"></div>
+
+            <div class="newspost-loggedout-inner">
+                <h1>Large newspost on homepage logged out</h1>
+                <small>by <strong>You & Me</strong></small>
+            </div>
+        </div>
+        <div class="newspost newspost-newspost">
+            <div class="newspost-image"></div>
+
+            <div class="newspost-newspost-inner">
+                <h1>Newspost on newspost page</h1>
+                <small>by <strong>You & Me</strong></small>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src="index.js"></script>
+
+</html>

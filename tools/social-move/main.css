@@ -1,0 +1,127 @@
+@import url('/tools/fonts/clash-display.css');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f7f7;
+    font-family: 'ClashDisplay-Variable';
+}
+
+.main {
+    margin: 0px auto;
+    width: 100vw;
+    max-width: 700px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+h1, p {
+    margin: 0px 20px;
+}
+
+
+
+.button {
+    width: 100%;
+    border-radius: 90px;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(100deg, #33b7d4 2.25%, #458AF4 96.25%);
+    font-weight: 600;
+    color: white;
+    margin-top: 12px
+}
+
+
+input {
+    background-color: #fff;
+    border: 0px solid white;
+    outline: 0px solid white !important;
+    padding: 17px;
+    font-size: 17px;
+    font-family: inherit;
+    border-radius: 90px;
+    margin: 20px 0px;
+    box-shadow: 4px 4px 15px #0002, -4px -4px 15px #fff;
+}
+
+canvas {
+    border-radius: 10px;
+    margin: 8px -20px;
+width: calc(100% + 40px);
+    box-shadow: 4px 4px 15px #0002, -4px -4px 15px #fff;
+}
+
+#error {
+    
+    color: #f73747;
+    margin-top: 20px;
+}
+
+#copy {
+    background: linear-gradient(100deg, #d5f6fd 2.25%, #d6e7ff 96.25%);
+
+    color: inherit;
+}
+.button:hover {
+    background: white !important;
+    color: #458AF4 !important;
+    box-shadow: 4px 4px 15px #0002, -4px -4px 15px #fff;
+}
+
+.toasts {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+@keyframes toast-open {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+.toast {
+    animation: 0.3s ease-out toast-open;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px #0002, -4px -4px 15px #fff;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid var(--col);
+    border-radius: 90px;
+}
+.style {
+    display: flex;
+    align-items: center;
+    margin: 18px 20px;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 800;
+    font-size: 18px;
+    padding-right: 40px;
+    margin-bottom: 0px;
+}
+.style select {
+    background: #fff;
+    border: 0px solid white;
+    border-radius: 20px;
+    box-shadow: 0px 3px 14px #0001;
+    font-size: 18px;
+    width: 50%;
+    padding: 7px 15px;
+    font-family: inherit;
+}

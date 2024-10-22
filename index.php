@@ -7,6 +7,8 @@ require __DIR__ . '/vendor/autoload.php';
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
+Site::$work = true;
+
 
 if(php_sapi_name() == "cli") {
     switch ($argv[1] ?? null) {
@@ -38,7 +40,15 @@ $router->get("/portfolio", function() {
 $router->get("/gallery", function() {
     Page("gallery");
 });
+$router->post("/contact", function() {
+    $try = \Database\Memcache::get("contact_from_".$_SERVER['REMOTE_ADDR']);
+    if($try == true) echo json_encode("too_fast");
 
+    Email::Send($_POST['from'], $_POST['name'], "tanza.me / contact form", $_POST['body']);
+
+    \Database\Memcache::set("contact_from_".$_SERVER['REMOTE_ADDR'], true, 30);
+    echo json_encode("ok");
+});
 
 include("admin.php");
 

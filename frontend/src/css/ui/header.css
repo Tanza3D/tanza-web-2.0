@@ -26,7 +26,7 @@
 .header-left .buttons {
     gap: 10px;
     display: flex;
-    padding: 40px 100px 10px 60px;
+    padding: 20px 100px 0px 30px;
 }
 .header-left .buttons-info {
     display: flex;
@@ -54,7 +54,6 @@
     position: relative;
     font-size: 21px;
 
-    background: var(--tz-upper);
 }
 .header-left .buttons > *:nth-child(4) {
     animation-delay: 0.25s;
@@ -70,11 +69,6 @@
 }
 .header-left .buttons > *:nth-child(0) {
     animation-delay: 0.95s;
-}
-.header-left .buttons > * .slant-inner {
-
-    height: 100px;
-    padding: 16px 20px;
 }
 .header-left .buttons i {
     font-size: 40px;

@@ -29,7 +29,7 @@
 fieldset {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 20px;
     border: 0;
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -43,11 +43,23 @@ fieldset div {
     pointer-events: none;
     display: flex;
     align-items: center;
+    background: var(--tz-upper-less);
+    transition: all 0.3s ease;
+    cursor: pointer !important;
+    border-left: 0px solid #5A1FFF00;
 }
-
+fieldset div:hover {
+    background: var(--tz-upper);
+}
+fieldset div:has(:checked) {
+    flex: 1.5;
+    background: #F2EDFE;
+    color: var(--tz-background);
+    border-left: 10px solid #5A1FFF;
+}
 fieldset input {
+    cursor: pointer !important;
     appearance: none;
-    background-color: var(--col-l2);
     margin: 0;
     position: absolute;
     top: 0;
@@ -71,9 +83,7 @@ fieldset label svg {
     height: 16px;
     width: 16px;
 }
-fieldset input:checked {
-    background-color: var(--col-l5);
-}
+
 fieldset input:checked ~ label {
     font-weight: 900;
 }

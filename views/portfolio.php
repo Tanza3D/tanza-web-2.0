@@ -23,6 +23,13 @@ usort($items, function ($a, $b) {
 
 //foreach($items as $item) $item['Images'] = json_decode($item['Images'], true);
 for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items[$x]['Images'], true);
+
+
+\Site\Embed::SetDescription("Here, you can find all the design work I've done, including company branding, website design, product design, and more!");
+\Site\Embed::SetTitle("Tanza's Portfolio");
+\Site\Embed::SetBannerImage("/public/img/workbanner.png");
+
+
 ?>
 <script>
     const PortfolioItems = <?= json_encode($items) ?>;
@@ -45,31 +52,30 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
                 <p>On this page, you can find all the design work I've done, including company branding, website design, product design, and more! Website design will also include information on the development process!</p>
             </div>
         </div>
-        <!--<div class="buttons slant">
-            <div class="selected">
-                <div class="slant-inner">
-                    one<i class="iconoir-hand-brake"></i>
+        <div class="buttons slant">
+            <fieldset id="fieldset" style="display: none">
+                <!-- i'll do it later-->
+                <div>
+                    <input type="radio" id="grid" name="view" value="grid" checked />
+                    <label for="grid" class="slant-inner">Grid</label>
                 </div>
-            </div>
-            <div>
-                <div class="slant-inner">
-                    two<i class="iconoir-check"></i>
+
+                <div>
+                    <input type="radio" id="list-simple" name="view" value="list-simple" />
+                    <label for="list-simple" class="slant-inner">Mobile List</label>
                 </div>
-            </div>
-            <div>
-                <div class="slant-inner">
-                    three<i class="iconoir-emoji-sing-left-note"></i>
+
+                <div>
+                    <input type="radio" id="list-advanced" name="view" value="list-advanced" />
+                    <label for="list-advanced" class="slant-inner">Advanced List</label>
                 </div>
-            </div>
+            </fieldset>
+
         </div>
-        <div class="buttons-info">
-            <div class="left">browsing “Branding” group</div>
-            <div class="right">92 items</div>
-        </div>-->
     </div>
     <div class="header-right">
         <div class="header-image slant">
-            <img class="slant-inner" src="https://tanza.me/img/gallery/original/1696531813_output.png">
+            <img class="slant-inner" src="/img/portfolio/1709491280/medium.png">
         </div>
     </div>
 </div>

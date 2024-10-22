@@ -1,0 +1,314 @@
+@import url('/tools/fonts/clash-display.css');
+
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	--hsl-p: var(--base-hue), 100%, 50%;
+	--hsl-h1: var(--base-hue), 100%, 70%;
+	--hsl-h2: var(--base-hue), 50%, 45%;
+	--hsl-c1: var(--base-hue), 40%, 100%;
+	--hsl-c2: var(--base-hue), 40%, 90%;
+	--hsl-l1: var(--base-hue), 40%, 80%;
+	--hsl-l2: var(--base-hue), 40%, 75%;
+	--hsl-l3: var(--base-hue), 40%, 70%;
+	--hsl-l4: var(--base-hue), 40%, 50%;
+	--hsl-d1: var(--base-hue), 20%, 35%;
+	--hsl-d2: var(--base-hue), 20%, 30%;
+	--hsl-d3: var(--base-hue), 20%, 25%;
+	--hsl-d4: var(--base-hue), 20%, 20%;
+	--hsl-d5: var(--base-hue), 20%, 15%;
+	--hsl-d6: var(--base-hue), 20%, 10%;
+	--hsl-f1: var(--base-hue), 10%, 60%;
+	--hsl-b1: var(--base-hue), 10%, 40%;
+	--hsl-b2: var(--base-hue), 10%, 30%;
+	--hsl-b3: var(--base-hue), 10%, 25%;
+	--hsl-b4: var(--base-hue), 10%, 20%;
+	--hsl-b5: var(--base-hue), 10%, 15%;
+	--hsl-b6: var(--base-hue), 10%, 10%;
+	--c-saturation-1: 100%;
+	--c-saturation-2: 80%;
+	--c-saturation-3: 60%;
+	--c-saturation-4: 40%;
+	--c-lightness-1: 70%;
+	--c-lightness-2: 60%;
+	--c-lightness-3: 50%;
+	--c-lightness-4: 30%;
+	--colour-pink-hue: 333;
+	--hsl-pink-1: var(--colour-pink-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-pink-2: var(--colour-pink-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-pink-3: var(--colour-pink-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-pink-4: var(--colour-pink-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-purple-hue: 255;
+	--hsl-purple-1: var(--colour-purple-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-purple-2: var(--colour-purple-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-purple-3: var(--colour-purple-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-purple-4: var(--colour-purple-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-blue-hue: 200;
+	--hsl-blue-1: var(--colour-blue-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-blue-2: var(--colour-blue-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-blue-3: var(--colour-blue-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-blue-4: var(--colour-blue-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-green-hue: 125;
+	--hsl-green-1: var(--colour-green-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-green-2: var(--colour-green-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-green-3: var(--colour-green-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-green-4: var(--colour-green-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-lime-hue: 90;
+	--hsl-lime-1: var(--colour-lime-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-lime-2: var(--colour-lime-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-lime-3: var(--colour-lime-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-lime-4: var(--colour-lime-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-orange-hue: 45;
+	--hsl-orange-1: var(--colour-orange-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-orange-2: var(--colour-orange-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-orange-3: var(--colour-orange-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-orange-4: var(--colour-orange-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-red-hue: 360;
+	--hsl-red-1: var(--colour-red-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-red-2: var(--colour-red-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-red-3: var(--colour-red-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-red-4: var(--colour-red-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--colour-darkorange-hue: 20;
+	--hsl-darkorange-1: var(--colour-darkorange-hue), var(--c-saturation-1), var(--c-lightness-1);
+	--hsl-darkorange-2: var(--colour-darkorange-hue), var(--c-saturation-2), var(--c-lightness-2);
+	--hsl-darkorange-3: var(--colour-darkorange-hue), var(--c-saturation-3), var(--c-lightness-3);
+	--hsl-darkorange-4: var(--colour-darkorange-hue), var(--c-saturation-4), var(--c-lightness-4);
+	--image: url("https://i.ppy.sh/1c10b2b35ae1c9be010bcb7231cd15bf62e96e0d/68747470733a2f2f6f73752e7070792e73682f77696b692f696d616765732f7368617265642f6e6577732f323032332d31322d31362d6e61742d67617a657474652d6465632d323032332f62616e6e65722e6a7067");
+}
+
+.news {
+	--base-hue: 255;
+	--base-hue-deg: 255deg;
+}
+
+.badges {
+	--base-hue: 333 !important;
+}
+
+body {
+	background-color: hsl(var(--hsl-b6));
+	color: #fff;
+	font-family: 'ClashDisplay-Variable';
+	display: flex;
+	line-height: 1.25;
+}
+
+.sidebar {
+	background-color: hsl(var(--hsl-b5));
+	min-width: 400px;
+	height: 100vh;
+}
+
+.sidebar h1 {
+	padding: 20px;
+}
+
+.sidebar p {
+	padding: 20px;
+	padding-top: 0px;
+}
+
+.tab {
+	padding: 20px;
+}
+
+.tab-sel {
+	background-color: hsl(var(--hsl-l4));
+}
+
+.badges .news-content {
+	display: none;
+}
+
+.news .badges-content {
+	display: none;
+}
+
+.content {
+	overflow-y: auto;
+	padding: 40px;
+	margin: auto;
+	max-height: 100vh;
+}
+
+.news-content {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1600px;
+	gap: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+.content>h1 {
+	text-align: right;
+	font-weight: 400;
+	margin-top: 60px;
+	font-size: 16px;
+	color: hsl(var(--hsl-c2));
+	margin-bottom: 20px;
+}
+
+.newspost-homepage {
+	--width: 530px;
+	--height: 130px;
+}
+
+.newspost-loggedout {
+	--width: 1000px;
+	--height: 160px;
+}
+
+.newspost-newspost {
+	--width: 670px;
+	--height: 200px;
+}
+
+.newspost-listing {
+	--width: 670px;
+	--height: 160px;
+}
+
+
+.newspost {
+	width: var(--width);
+	min-width: var(--width);
+}
+
+.newspost-image {
+	background-color: hsl(var(--hsl-b2));
+	background-image: var(--image);
+	background-size: cover;
+	background-position: center;
+	height: var(--height);
+	width: 100%;
+	width: var(--width);
+	min-width: var(--width);
+}
+
+.newspost-homepage-inner {
+	background-color: hsl(var(--hsl-b4));
+	display: flex;
+
+}
+
+.newspost-homepage-date {
+	align-items: flex-end;
+	border-right: 1px solid hsl(var(--hsl-l1));
+	color: hsl(var(--hsl-l1));
+	display: flex;
+	flex: none;
+	flex-direction: column;
+	margin: 10px;
+	padding-right: 10px;
+	text-align: right;
+	width: 70px;
+}
+.newspost-homepage-date h1 {
+	font-size: 16px;
+	font-weight: 800;
+}
+.newspost-homepage-date p {
+	font-size: 11px;
+	font-weight: 800;
+}
+.newspost-homepage-texts {
+	margin-right: 10px;
+}
+.newspost-homepage-texts h1 {
+	color: #fff;
+	display: block;
+	font-size: 16px;
+	font-weight: 700;
+	margin: 5px 0 10px;
+}
+
+.newspost-homepage-texts p {
+	font-family: var(--font-content-override,var(--font-content));
+	font-size: 12px;
+	line-height: 1.35;
+	margin: 0px 0px 10px;
+}
+
+
+
+.newspost-loggedout .newspost-image {
+	border-radius: 6px;
+}
+
+.newspost-loggedout {
+	background-color: hsl(var(--hsl-b4));
+	border-radius: 4px;
+	border-radius: 6px;
+	color: #fff;
+	display: block;
+	min-width: 0;
+}
+
+.newspost-loggedout-inner h1 {
+	font-size: 14px;
+}
+
+.newspost-loggedout-inner small {
+	font-size: 12px;
+}
+
+.newspost-loggedout-inner {
+	padding: 10px 15px;
+}
+
+.newspost-newspost-inner h1 {
+	font-size: 35px;
+}
+.newspost-newspost-inner small {
+	font-size: 14px;
+}
+.newspost-newspost-inner {
+	margin-top: 20px;
+}
+
+.newspost-listing-inner {
+	padding: 10px 15px;
+}
+
+.newspost-listing-inner h1 {
+	font-size: 20px;
+}
+.newspost-listing-inner p {
+	font-size: 12px;
+}
+.newspost-listing-inner small {
+	font-size: 12px;
+}
+
+.newspost-listing {
+	border-radius: 6px;
+	background-color: hsl(var(--hsl-b4));
+}
+.newspost-listing .newspost-image {
+	border-radius: 6px;
+}
+
+.newspost-loggedout.small {
+	--width: 320px
+}
+
+.hidden {
+	display: none;
+}
+
+.dragdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 40px;
+	background-color: hsl(var(--hsl-b4));
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	box-shadow: 0px 0px 4100px 500px hsl(var(--hsl-b6));
+}

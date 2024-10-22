@@ -11,7 +11,10 @@ body {
     background-color: var(--col-base);
     min-height: 100vh;
     overflow-x: hidden;
+    max-width: 100vw;
 }
+
+
 h1 {
     font-family: "RobotoFlex", sans-serif;
     color: #FA31D9;
@@ -38,4 +41,9 @@ body:has(.portfolio-overlay-open) {
 
 .skip-link:focus {
     opacity: 1;
+}
+
+.pages {
+    max-width: 100vw;
+    overflow-x: hidden;
 }

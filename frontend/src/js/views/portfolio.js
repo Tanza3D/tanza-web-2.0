@@ -2,7 +2,7 @@
 
 
 import {Div, Image, Text} from "../utils/dom";
-import { marked } from "marked";
+import {marked} from "marked";
 
 var grabbed = [];
 
@@ -34,10 +34,11 @@ var animation_delay = 0.3;
 var overlay = document.getElementById("overlay");
 
 overlay.addEventListener("click", (e) => {
-    if(e.target === overlay)
-    overlay.classList.remove("portfolio-overlay-open");
+    if (e.target === overlay)
+        overlay.classList.remove("portfolio-overlay-open");
 })
-function CreateImage(item) {
+
+function CreateImage(item, simple = false) {
     console.log(item);
     var container = Div("div", "image-container");
     console.log(item);
@@ -56,6 +57,8 @@ function CreateImage(item) {
 
     container.style.animationDelay = animation_delay + "s";
     container.style.setProperty("--ratio", item.Ratio.replace(":", " / "));
+
+
 
     var bar = Div("div", "bar");
     container.appendChild(bar);
@@ -85,7 +88,7 @@ function CreateImage(item) {
 
     var content = item.Content;
 
-    for(var x = 0; x < item.Images.length; x++) {
+    for (var x = 0; x < item.Images.length; x++) {
         var thisurl = item.Images[x];
         if (!thisurl.startsWith("http")) {
             thisurl = `/img/portfolio/${item.ID}/${thisurl}`;
@@ -97,7 +100,7 @@ function CreateImage(item) {
         document.getElementById("overlay-title").innerHTML = item.Name;
         document.getElementById("overlay-image").src = url;
         document.getElementById("overlay-content").innerHTML = marked.parse(content);
-        if(item.Link == null || item.Link == "") {
+        if (item.Link == null || item.Link == "") {
             document.getElementById("overlay-visit").classList.add("hidden");
         } else {
             document.getElementById("overlay-visit").classList.remove("hidden");
@@ -193,6 +196,28 @@ var layouts = {
         bottom.appendChild(CreateImage(GetNextItem("branding", "", 2, "max")));
         bottom.appendChild(CreateImage(GetNextItem("branding", "", 2, "max")));
         return container;
+    },
+    "SingleAny": () => {
+        var container = Div("layout-singleany");
+        container.appendChild(CreateImage(GetNextItem("", "cover")));
+        container.appendChild(CreateImage(GetNextItem("", "cover")));
+
+        var covers = Div("div", "covers");
+        covers.appendChild(CreateImage(GetNextItem("cover")));
+        covers.appendChild(CreateImage(GetNextItem("cover")));
+        container.appendChild(covers);
+
+        return container;
+    },
+
+    "SingleAdvanced": () => {
+        var container = Div("layout-advanced");
+        container.appendChild(CreateImage(GetNextItem(), true));
+        var info = Div("div");
+
+        info.appendChild()
+
+        return container;
     }
 }
 
@@ -200,12 +225,88 @@ var layoutOrder = ["BigCoverAny", "OneTwoThree", "BrandingArea", "SideBySideBann
 
 var grid = document.getElementById("portfolio-grid");
 
-for (var item of layoutOrder) {
-    layoutOrder.push(item); // never runs out :)
-    grid.appendChild(layouts[item]());
+var layout = "";
+window.addEventListener("resize", () => {
+    load();
+})
+
+var selector = document.getElementById("fieldset");
+var manualLayout = false;
+var layout = "grid"; // Initialize layout
+
+function selectLayout(l, cui = false) {
+    layout = l;
+    console.log("Layout selected:", layout);
+
+    if (cui) {
+        for (var child of selector.querySelectorAll("input")) {
+            if (child.id === layout) {
+                child.checked = true;
+            } else {
+                child.checked = false;
+            }
+        }
+    }
 }
 
+// Add event listener to detect changes in the fieldset
+selector.addEventListener("change", (event) => {
+    // Get the selected value from the changed radio button
+    var selectedValue = document.querySelector('input[name="view"]:checked').value;
+    selectLayout(selectedValue);
+    manualLayout = true; // Set to true when the user manually selects a layout
+    load();
+});
+var lastLayout = "";
 
-console.log("Next Cover", GetNextItem("cover"));
-console.log("Next Cover", GetNextItem("cover"));
-console.log("Next Branding", GetNextItem("branding"));
+// Function to auto-select layout based on screen size
+function load() {
+    if (!manualLayout) {
+        if (window.innerWidth < 900) {
+            selectLayout("list-simple", true);
+        } else {
+            selectLayout("grid", true);
+        }
+    }
+
+    if (layout === lastLayout) {
+        console.log(layout, "is", lastLayout);
+        return;
+    }
+    console.log("Layout changed to:", layout);
+
+    grid.classList.add("hide");
+    setTimeout(() => {
+        grid.innerHTML = "";
+        grabbed = [];
+        try {
+            switch (layout) {
+                case "grid":
+                    for (var item of layoutOrder) {
+                        layoutOrder.push(item); // never runs out :)
+                        grid.appendChild(layouts[item]());
+                    }
+                    break;
+                case "list-simple":
+                    for (var x = 0; x < PortfolioItems.length; x++) {
+                        grid.appendChild(layouts["SingleAny"]());
+                    }
+                    break;
+                case "list-advanced":
+                    for (var x = 0; x < PortfolioItems.length; x++) {
+                        grid.appendChild(layouts["SingleAdvanced"]());
+                    }
+                    break;
+            }
+        } catch (e) {
+            grid.classList.remove("hide");
+            console.log(e);
+        }
+        window.loader.update();
+        grid.classList.remove("hide");
+    }, 500)
+
+    lastLayout = layout;
+}
+
+load();

@@ -32,4 +32,6 @@ const createLazyLoadInstance = () => {
     console.log("Created lazy load instance");
     return new LazyLoad(lazyLoadOptions);
 };
+
+
 export {createLazyLoadInstance};

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="main.css?v2">
+
+    <meta name="title" content="Social media move banner generator">
+    <meta name="description"
+        content="Moving to a new social media platform? Let your followers know with this custom banner generator!">
+    <meta name="keywords" content="twitter,x,bluesky,social,media">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="Tanza">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:src" content="https://tanza.me/tools/social-move/banner.png">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Moving to a new platform?</h1>
+        <p>Let people who visit your profile know where you've gone with a custom user banner!</p>
+
+        <div class="style">
+            <label for="style">Style</label>
+            <select name="style" id="style">
+                <option value="bsky-classic">Bluesky Classic</option>
+                <option value="bsky" selected="selected">Bluesky</option>
+            </select>
+        </div>
+
+        <input id="input" type="text" placeholder="Place your new handle here!">
+
+        <canvas width="1500" height="500" id="render"></canvas>
+        <div class="button" id="save">Save Image</div>
+        <div class="button" id="copy">Copy Image</div>
+        <p id="error"></p>
+        <div class="toasts" id="toasts"></div>
+    </div>
+</body>
+
+<script src="main.js?v2"></script>
+
+</html>

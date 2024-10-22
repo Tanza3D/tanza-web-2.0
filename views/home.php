@@ -1,3 +1,9 @@
+<?php
+\Site\Embed::SetDescription("I’m a designer and developer from the UK, working on projects such as osu!, UNTONE, Osekai, and many
+                    more! Learn about me here!");
+\Site\Embed::SetTitle("Tanza");
+\Site\Embed::SetBannerImage("/public/img/workbanner.png");
+?>
 <div class="header header-big">
     <div class="header-left">
         <div class="header-left-bg slant">
@@ -12,10 +18,10 @@
                     <path d="M44 0L70.9971 9.77559e-06L54.5527 15.1428L44 15.1428V0Z" fill="#5A1FFF"/>
                     <path d="M81 37.8572H60.4444L81 18.9286V3.89742e-05L44 34.0714V53H81V37.8572Z" fill="#5A1FFF"/>
                 </svg>
-                <h1>Hi, I’m <strong>Tanza!</strong></h1>
+                <h1>Hi, I’m <strong><?= Site::$work == true ? "Archie / Tanza" : "Tanza!" ?></strong></h1>
                 <p>I’m a designer and developer from the UK, working on projects such as osu!, UNTONE, Osekai, and many
                     more.</p>
-                <p>In my spare time, I also work on 3d art and character design, and I dabble a bit in music and
+                <p>In my spare time, I also work on 3D art and character design, and I dabble a bit in music and
                     electronics.</p>
                 <p>On this site, you can find practically everything I’ve worked on over the past few years, I hope you
                     enjoy looking around!</p>
@@ -24,7 +30,7 @@
     </div>
     <div class="header-right">
         <div class="header-image slant">
-            <img class="slant-inner" src="https://tanza.me/img/gallery/original/1696531813_output.png">
+            <img class="slant-inner" src="<?= Site::$work == true ? "/public/img/workbanner.png" : "https://tanza.me/img/gallery/original/1696531813_output.png" ?>">
         </div>
     </div>
 </div>
@@ -132,7 +138,7 @@ for($x = 0; $x < 16; $x++) {
             <div class="padding">
                 <div>
                     <h1>Portfolio</h1>
-                    <p>View all of my website, logo, cover, and product work, all in one place</p>
+                    <p>View all of my website, logo, cover, and product designs, all in one place</p>
                 </div>
             </div>
         </div>
@@ -218,8 +224,17 @@ for($x = 0; $x < 16; $x++) {
             button("twitch", "Twitch", "https://twitch.tv/tanza3d", "#944DFF");
             button("osu", "osu!", "https://osu.ppy.sh/users/10379965", "#ff66aa");
             button("lastdotfm", "Last.fm", "https://www.last.fm/user/Tanza3D", "#E4222A");
-            button("discord", "Discord", "discord", "#1D23BE");
             ?>
+            <a class="social-button discord" style="--col: #1D23BE;" onclick="window.CopyDiscord(event)">
+                <div class="upper">
+                    <i icon="discord"></i>
+                    <h1>Discord</h1>
+                </div>
+                <div class="under">
+                    <img src="https://tanza.me/img/gallery/small/1717107846_whatsdoneisdone-tanza.png">
+                    <p>tanza3d</p>
+                </div>
+            </a>
         </div>
     </div>
 </div>
@@ -264,6 +279,25 @@ for($x = 0; $x < 16; $x++) {
                 "UNTONE Music is a popular record label owned by UNTONE, publishing and 
                 marketing electronic music from artists all around the world");
             ?>
+        </div>
+    </div>
+</div>
+<div class="contact" id="contact">
+    <div class="page-container">
+        <div class="texts">
+            <h1>Contact</h1>
+            <p>Want to chat? Fill out the form and I'll get back to you as soon as possible!</p>
+            <p>Alternatively, email me directly at archie@untone.uk or contact me on Discord at Tanza3D!</p>
+        </div>
+        <div class="inputs">
+            <div>
+                <div class="input-wrapper"><input id="contact-name" class="input" type="text" placeholder="Name"></div>
+                <div class="input-wrapper"><input id="contact-email" class="input" type="text" placeholder="Email"></div>
+            </div>
+            <div class="input-wrapper more"><textarea id="contact-body" class="input" placeholder="Query"></textarea></div>
+            <div>
+                <div id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></div>
+            </div>
         </div>
     </div>
 </div>
