@@ -3,10 +3,66 @@
 
 import {Div, Image, Text} from "../utils/dom";
 import {marked} from "marked";
+import {getParam, insertParam} from "../utils/urlQuery";
+
+
+function OpenItemInOverlay(item) {
+
+    var url = item["Images"][0];
+    if (!url.startsWith("http")) {
+        url = `/img/portfolio/${item.ID}/medium.png`;
+    }
+
+    var content = item.Content;
+
+    for (var x = 0; x < item.Images.length; x++) {
+        var thisurl = item.Images[x];
+        if (!thisurl.startsWith("http")) {
+            thisurl = `/img/portfolio/${item.ID}/${thisurl}`;
+        }
+        console.log(thisurl)
+        content = content.replace(`{IMAGE_${x}}`, thisurl);
+    }
+
+    document.getElementById("overlay-title").innerHTML = item.Name;
+    document.getElementById("overlay-image").src = url;
+    document.getElementById("overlay-content").innerHTML = marked.parse(content);
+    if (item.Link == null || item.Link == "") {
+        document.getElementById("overlay-visit").classList.add("hidden");
+    } else {
+        document.getElementById("overlay-visit").classList.remove("hidden");
+        document.getElementById("overlay-visit").href = item.Link;
+    }
+    overlay.classList.add("portfolio-overlay-open");
+
+    insertParam("item", item.ID, true);
+}
+
+
+var overlay = document.getElementById("overlay");
+function GetItemFromId(id) {
+    for(var item of PortfolioItems) {
+        if(item.ID == id) return item;
+    }
+}
+function CheckUrl() {
+    if(getParam("item", null) == null) {
+        overlay.classList.remove("portfolio-overlay-open");
+    } else {
+        var item = GetItemFromId(getParam("item"));
+        overlay.classList.add("portfolio-overlay-open");
+    }
+}
+
+CheckUrl();
+window.addEventListener('popstate', function(event) {
+    CheckUrl();
+});
 
 var grabbed = [];
 
 function GetNextItem(type = "", notType = "", maxAspect = null, aspectWay = "max", rec = false) {
+
     var not = notType.split(",");
     console.log("fetching for " + type)
     for (var item of PortfolioItems) {
@@ -31,11 +87,10 @@ function GetNextItem(type = "", notType = "", maxAspect = null, aspectWay = "max
 
 var animation_delay = 0.3;
 
-var overlay = document.getElementById("overlay");
 
 overlay.addEventListener("click", (e) => {
     if (e.target === overlay)
-        overlay.classList.remove("portfolio-overlay-open");
+        window.history.go(-1);
 })
 
 function CreateImage(item, simple = false) {
@@ -86,27 +141,8 @@ function CreateImage(item, simple = false) {
         animation_delay += 0.05;
     }
 
-    var content = item.Content;
-
-    for (var x = 0; x < item.Images.length; x++) {
-        var thisurl = item.Images[x];
-        if (!thisurl.startsWith("http")) {
-            thisurl = `/img/portfolio/${item.ID}/${thisurl}`;
-        }
-        console.log(thisurl)
-        content = content.replace(`{IMAGE_${x}}`, thisurl);
-    }
     container.addEventListener("click", () => {
-        document.getElementById("overlay-title").innerHTML = item.Name;
-        document.getElementById("overlay-image").src = url;
-        document.getElementById("overlay-content").innerHTML = marked.parse(content);
-        if (item.Link == null || item.Link == "") {
-            document.getElementById("overlay-visit").classList.add("hidden");
-        } else {
-            document.getElementById("overlay-visit").classList.remove("hidden");
-            document.getElementById("overlay-visit").href = item.Link;
-        }
-        overlay.classList.add("portfolio-overlay-open");
+        OpenItemInOverlay(item)
     })
 
     return container;

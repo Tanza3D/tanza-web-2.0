@@ -94,7 +94,7 @@ for ($x = 0; $x < count($items); $x++) $items[$x]['Images'] = json_decode($items
             <div class="color-bars"></div>
         </div>
 
-        <a class="slant visit" id="overlay-visit">
+        <a class="slant visit" id="overlay-visit" target="_blank">
             <h1 class="slant-inner" id="visit-text">Visit Page</h1>
         </a>
     </div>

@@ -286,18 +286,18 @@ for($x = 0; $x < 16; $x++) {
     <div class="page-container">
         <div class="texts">
             <h1>Contact</h1>
-            <p>Want to chat? Fill out the form and I'll get back to you as soon as possible!</p>
+            <p>Want to talk? Fill out the form and I'll get back to you as soon as possible!</p>
             <p>Alternatively, email me directly at archie@untone.uk or contact me on Discord at Tanza3D!</p>
         </div>
-        <div class="inputs">
+        <form class="inputs">
             <div>
-                <div class="input-wrapper"><input id="contact-name" class="input" type="text" placeholder="Name"></div>
-                <div class="input-wrapper"><input id="contact-email" class="input" type="text" placeholder="Email"></div>
+                <div class="input-wrapper"><input autocomplete="name" name="name" id="contact-name" class="input" type="text" placeholder="Name"></div>
+                <div class="input-wrapper"><input autocomplete="email" name="email" id="contact-email" class="input" type="email" placeholder="Email"></div>
             </div>
             <div class="input-wrapper more"><textarea id="contact-body" class="input" placeholder="Query"></textarea></div>
             <div>
-                <div id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></div>
+                <button type="submit" id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
