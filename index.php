@@ -7,8 +7,9 @@ require __DIR__ . '/vendor/autoload.php';
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
-Site::$work = true;
-
+if ($_SERVER['SERVER_NAME'] == "tanza.work") {
+    Site::$work = true;
+}
 
 if(php_sapi_name() == "cli") {
     switch ($argv[1] ?? null) {
