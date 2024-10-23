@@ -295,7 +295,7 @@ for($x = 0; $x < 16; $x++) {
             </div>
             <div class="input-wrapper more"><textarea id="contact-body" class="input" placeholder="Query"></textarea></div>
             <div>
-                <button type="submit" id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></button>
+                <button id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></button>
             </div>
         </form>
     </div>
