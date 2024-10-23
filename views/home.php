@@ -1,6 +1,5 @@
 <?php
-\Site\Embed::SetDescription("I’m a designer and developer from the UK, working on projects such as osu!, UNTONE, Osekai, and many
-                    more! Learn about me here!");
+\Site\Embed::SetDescription("I’m a designer and developer from the UK, working on projects such as osu!, UNTONE, Osekai, and many more! Learn about me here!");
 \Site\Embed::SetTitle("Tanza");
 \Site\Embed::SetBannerImage("/public/img/workbanner.png");
 ?>
