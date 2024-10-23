@@ -1,20 +1,27 @@
 import '../../css/views/home.css'
 import {DoRequest} from "../utils/requests";
 import {Div, Text, LucideIcon} from "../utils/dom";
+import {PushToast} from "../ui/toasts";
 
 
 const email = document.getElementById("contact-email");
 const name = document.getElementById("contact-name");
 const body = document.getElementById("contact-body");
-document.getElementById("contact-send").addEventListener("click", async () => {
+document.getElementById("contact-send").addEventListener("click", async (event) => {
+    event.preventDefault();
     document.getElementById("contact").classList.add("loading");
-    await DoRequest("POST", "/contact", {
-        "from": email.value,
-        "name": name.value,
-        "body": body.value
-    })
-    document.getElementById("contact").classList.remove("loading");
-    document.getElementById("contact").querySelector(".page-container").innerHTML = "<h1>Thanks! I'll get back to you soon!</h1>";
+    try {
+        await DoRequest("POST", "/contact", {
+            "from": email.value,
+            "name": name.value,
+            "body": body.value
+        })
+        document.getElementById("contact").classList.remove("loading");
+        document.getElementById("contact").querySelector(".page-container").innerHTML = "<h1>Thanks! I'll get back to you soon!</h1>";
+    } catch {
+        PushToast({theme: "error", content: "Couldn't send, is the email correct?"})
+        document.getElementById("contact").classList.remove("loading");
+    }
 })
 
 function checkInputs() {

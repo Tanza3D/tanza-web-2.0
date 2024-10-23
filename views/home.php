@@ -29,7 +29,8 @@
     </div>
     <div class="header-right">
         <div class="header-image slant">
-            <img class="slant-inner" src="<?= Site::$work == true ? "/public/img/workbanner.png" : "https://tanza.me/img/gallery/original/1696531813_output.png" ?>">
+            <img class="slant-inner"
+                 src="<?= Site::$work == true ? "/public/img/workbanner.png" : "https://tanza.me/img/gallery/original/1696531813_output.png" ?>">
         </div>
     </div>
 </div>
@@ -240,8 +241,9 @@ for($x = 0; $x < 16; $x++) {
 <div class="page-container">
     <div class="work-grid">
         <?php
-        function project($title, $name, $link, $button, $about) {
-?>
+        function project($title, $name, $link, $button, $about)
+        {
+            ?>
             <div class="slant projectpanel" style="--bg: url('/public/img/home/<?= $title ?>.png')">
                 <div class="slant-inner">
                     <div class="logo"><img src="/public/img/home/<?= $title ?>.svg"></div>
@@ -256,13 +258,14 @@ for($x = 0; $x < 16; $x++) {
                     </div>
                 </div>
             </div>
-        <?php
+            <?php
         }
+
         ?>
         <div>
             <?php
             project("untone", "UNTONE", "https://untone.uk", "Learn More",
-            "UNTONE is a group of developers, designers, and musicians creating websites, music,
+                "UNTONE is a group of developers, designers, and musicians creating websites, music,
                                 games, and more. I lead the group alongside Guus!");
             ?>
         </div>
@@ -281,7 +284,8 @@ for($x = 0; $x < 16; $x++) {
         </div>
     </div>
 </div>
-<div class="contact" id="contact">
+<form class="contact" id="contact" autocomplete="on">
+    
     <div class="page-container">
         <div class="texts">
             <h1>Contact</h1>
@@ -290,13 +294,21 @@ for($x = 0; $x < 16; $x++) {
         </div>
         <div class="inputs">
             <div>
-                <div class="input-wrapper"><input autocomplete="name" name="name" id="contact-name" class="input" type="text" placeholder="Name"></div>
-                <div class="input-wrapper"><input autocomplete="email" name="email" id="contact-email" class="input" type="email" placeholder="Email"></div>
+                <div class="input-wrapper">
+                    <input autocomplete="name" name="name" id="contact-name" class="input" type="text"
+                           placeholder="Name">
+                </div>
+                <div class="input-wrapper">
+                    <input autocomplete="email" name="email" id="contact-email" class="input" type="email"
+                           placeholder="Email">
+                </div>
             </div>
-            <div class="input-wrapper more"><textarea id="contact-body" class="input" placeholder="Query"></textarea></div>
+            <div class="input-wrapper more">
+                <textarea id="contact-body" class="input" placeholder="Query"></textarea>
+            </div>
             <div>
-                <button id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></button>
+                <button type="submit" id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></button>
             </div>
         </div>
     </div>
-</div>
+</form>
