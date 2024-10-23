@@ -288,7 +288,7 @@ for($x = 0; $x < 16; $x++) {
             <p>Want to talk? Fill out the form and I'll get back to you as soon as possible!</p>
             <p>Alternatively, email me directly at archie@untone.uk or contact me on Discord at Tanza3D!</p>
         </div>
-        <form class="inputs">
+        <div class="inputs">
             <div>
                 <div class="input-wrapper"><input autocomplete="name" name="name" id="contact-name" class="input" type="text" placeholder="Name"></div>
                 <div class="input-wrapper"><input autocomplete="email" name="email" id="contact-email" class="input" type="email" placeholder="Email"></div>
@@ -297,6 +297,6 @@ for($x = 0; $x < 16; $x++) {
             <div>
                 <button id="contact-send" class="button cta right slant"><span class="slant-inner">Send</span></button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
