@@ -284,8 +284,10 @@ for($x = 0; $x < 16; $x++) {
         </div>
     </div>
 </div>
+
+
+
 <form class="contact" id="contact" autocomplete="on">
-    
     <div class="page-container">
         <div class="texts">
             <h1>Contact</h1>
@@ -295,11 +297,11 @@ for($x = 0; $x < 16; $x++) {
         <div class="inputs">
             <div>
                 <div class="input-wrapper">
-                    <input autocomplete="name" name="name" id="contact-name" class="input" type="text"
+                    <input autocomplete="name" name="contact_name" id="contact-name" class="input" type="text"
                            placeholder="Name">
                 </div>
                 <div class="input-wrapper">
-                    <input autocomplete="email" name="email" id="contact-email" class="input" type="email"
+                    <input autocomplete="email" name="contact_email" id="contact-email" class="input" type="email"
                            placeholder="Email">
                 </div>
             </div>
