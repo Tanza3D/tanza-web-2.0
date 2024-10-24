@@ -251,7 +251,7 @@ for($x = 0; $x < 16; $x++) {
                         <div class="slant-inner">
                             <p><?= $about ?></p>
                         </div>
-                        <a class="button cta" href="https://untone.uk">
+                        <a class="button cta" href="<?= $link ?>">
                             <span class="slant-inner"><?= $button ?></span>
                         </a>
 
