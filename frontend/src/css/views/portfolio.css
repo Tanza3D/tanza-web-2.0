@@ -15,7 +15,6 @@ layout-onetwothree .left {
 }
 
 layout-onetwothree .left > div {
-    aspect-ratio: 16 / 9;
     width: 100%;
     height: auto;
     flex: 1;
@@ -121,7 +120,6 @@ layout-brandingarea .top, layout-brandingarea .bottom {
 layout-sidebyside > div, layout-brandingarea .image-container {
     flex-basis: max(var(--modifier), 0px);
     flex-grow: calc(var(--ratio));
-    aspect-ratio: var(--ratio);
     position: relative;
     display: block;
     width: 100%;
@@ -147,6 +145,7 @@ layout-sidebyside > div > img, layout-brandingarea img {
     transform: scale(1.0001);
     cursor: pointer;
     outline: 3px solid #0000;
+    width: 100%;
 }
 
 
@@ -188,6 +187,9 @@ z-index: -1;
     transition: all 0.5s ease;
     opacity: 1;
     min-height: 400vh;
+}
+.portfolio-grid > * {
+    
 }
 .portfolio-grid.hide {
     opacity: 0;
