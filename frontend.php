@@ -21,7 +21,7 @@
     <title>Tanza</title>
 
 
-    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css">
+    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?2">
 
     <?php
     \Site\Embed::AddTags(Site\Embed::$title);
