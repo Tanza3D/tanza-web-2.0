@@ -212,6 +212,9 @@ layout-bigcoverany > * {
 .image-container img {
     background-image: #fff2;
 }
+.image-container img {
+    width: 100%;
+}
 
 
 .image-container .bar {
