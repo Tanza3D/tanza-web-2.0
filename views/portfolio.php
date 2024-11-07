@@ -1,4 +1,15 @@
 <?php
+function url_get_contents ($Url) {
+    if (!function_exists('curl_init')){ 
+        die('CURL is not installed!');
+    }
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $Url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $output = curl_exec($ch);
+    curl_close($ch);
+    return $output;
+}
 
 use Database\Connection;
 
@@ -7,12 +18,20 @@ $items = Connection::execSimpleSelect("SELECT * FROM Portfolio WHERE Visible = 1
 $extra = \Database\Memcache::get("covers");
 
 if ($extra == null) {
-    $extra = file_get_contents("https://untonemusic.com/api/tanzacovers");
+$arrContextOptions=array(
+      "ssl"=>array(
+            "verify_peer"=>false,
+            "verify_peer_name"=>false,
+        ),
+    );  
+
+    $extra = url_get_contents("https://untonemusic.com/api/tanzacovers", false, stream_context_create($arrContextOptions));
 
     // "Any time the constant 86400 appears in your code, there is a good chance you're doing something that's not quite right."
     // sincerely go fuck yourself
     \Database\Memcache::set("covers", $extra, 86400);
 }
+
 $extra = json_decode($extra, true);
 foreach ($extra as $e) $items[] = $e;
 
