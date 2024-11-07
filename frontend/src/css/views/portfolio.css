@@ -55,6 +55,7 @@ layout-onetwothree .right .bottom > * {
 layout-onetwothree .right .top > * {
     height: auto;
     width: 100%;
+    aspect-ratio: revert !important;
 }
 layout-onetwothree .right .top img {
 
