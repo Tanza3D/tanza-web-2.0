@@ -29,7 +29,7 @@ function checkInputs() {
         email.value == ""
         ||
         name.value == ""
-        ||
+        ||pages
         body.value == ""
     ) {
         document.getElementById("contact-send").classList.add("disabled");
