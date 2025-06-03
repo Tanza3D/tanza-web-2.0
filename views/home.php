@@ -148,7 +148,7 @@ for($x = 0; $x < 16; $x++) {
 
 <div class="page-container two-button">
 
-    <a class="slant" href="/gallery">
+    <a class="slant" href="https://anthera.art/@tanza">
         <div class="image">
             <img class="slant-inner" src="https://tanza.me/img/gallery/original/1700516349_pool.png">
         </div>
