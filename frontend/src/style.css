@@ -235,9 +235,7 @@ position: absolute !important;;
 .markdown-content img {
     max-width: 100%;
     max-height: 50vh;
-    background-color: #0002;
-    outline: 1px solid #fff2;
-    padding: 8px;
+    border-radius: 8px;
 }
 .markdown-content p {
     font-size: 20px;

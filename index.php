@@ -48,6 +48,9 @@ $router->get("/", function() {
 $router->get("/portfolio", function() {
     Page("portfolio");
 });
+$router->get("/portfolio/{id}", function($item_id) {
+    Page("portfolio_item", $item_id);
+});
 $router->get("/gallery", function() {
     Page("gallery");
 });

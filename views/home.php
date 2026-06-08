@@ -1,13 +1,16 @@
 <?php
 \Site\Embed::SetDescription("I’m a designer and developer from the UK, working on projects such as osu!, UNTONE, Osekai, and many more! Learn about me here!");
 \Site\Embed::SetTitle("Tanza");
-\Site\Embed::SetBannerImage("/public/img/workbanner.png");
+
 
 $random_mobile_range = 8;
 $random_desktop_range = 9;
 
 $random_mobile = rand(1, $random_mobile_range);
 $random_desktop = rand(1, $random_desktop_range);
+
+
+\Site\Embed::SetBannerImage("/public/img/home/bgs/desktop_" . str_pad($random_desktop, 2, '0', STR_PAD_LEFT) . ".jpg");
 ?>
 <style>
     .home-area {
