@@ -12,7 +12,8 @@ $router->get("/oauth", function () {
         'client_id' => CLIENT_ID,
         'client_secret' => CLIENT_SECRET,
         'code' => $_GET['code'],
-        'grant_type' => 'authorization_code'
+        'grant_type' => 'authorization_code',
+        'redirect_uri' => REDIRECT_URI
     ];
 
     $ch = curl_init(UNTONE_ID . '/api/oauth/token');
@@ -20,6 +21,7 @@ $router->get("/oauth", function () {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
     $response = curl_exec($ch);
     $response = json_decode($response, true);
+
     $token = $response['access_token'];
 
 
@@ -37,7 +39,7 @@ $router->get("/oauth", function () {
     echo "is admin " . json_encode($response);
 
     if($response['id'] == 1) $_SESSION['admin'] = 1;
-    //header("Location: /admin/gallery");
+    header("Location: /admin/portfolio");
 });
 
 if($is_admin) {

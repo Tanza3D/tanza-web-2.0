@@ -72,6 +72,16 @@ class Portfolio
         $values = array_values($data);
         $values[] = $id;
 
+        $values = [
+            $data["Name"],
+            $data["Link"],
+            $data["Content"],
+            $data["Type"],
+            $data["Date"],
+            $data["Visible"],
+            $id
+        ];
+
         Connection::execOperation("UPDATE Portfolio SET Name = ?, Link = ?, Content = ?, Type = ?, Date = ?, Visible = ? WHERE ID = ?",
         "sssssii", $values);
 
