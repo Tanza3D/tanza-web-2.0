@@ -1,43 +1,47 @@
 const path = require('path');
 const fs = require('fs');
-const postcssCustomMedia = require('postcss-custom-media');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const srcPath = './src';
 const node_modules = "./node_modules";
+
 module.exports = GenerateConfig();
 
 function GenerateConfig() {
-    var config = {
-        mode: 'development',
+    const isProduction = process.env["ANTHERA_PRODUCTION"] === "true";
+
+    const config = {
+        mode: isProduction ? 'production' : 'development',
         entry: getEntryPoints(),
-        plugins: [
-            {
-                apply: (compiler) => {
-                    compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
-                        if (fs.existsSync("rev.txt")) {
-                            var current_revision = fs.readFileSync("rev.txt");
-                        } else {
-                            var current_revision = 0;
-                        }
-                        fs.writeFileSync('rev.txt', (parseInt(current_revision) + 1).toString());
-                    });
-                }
-            },
-            new MiniCssExtractPlugin()
-        ],
+        cache: {
+            type: 'filesystem', // Enables persistent caching
+        },
+        devtool: isProduction ? 'source-map' : 'eval-cheap-module-source-map',
         output: {
             filename: '[name].bundle.js',
             path: path.resolve(__dirname, 'dist'),
+            clean: true, // Cleans up old files automatically
+        },
+        resolve: {
+            extensions: [".js", ".json"], // No need for .ts or .tsx anymore
         },
         module: {
             rules: [
                 {
+                    test: /\.js$/,
+                    use: 'babel-loader',
+                    exclude: /node_modules/,
+                },
+                {
                     test: /\.css$/,
                     use: [
                         MiniCssExtractPlugin.loader,
-                        {loader: 'css-loader', options: {importLoaders: 1}},
+                        {loader: 'css-loader', options: {importLoaders: 1,
+
+                                url: {
+                                    filter: (url) => !url.startsWith('/')
+                                }
+                            }},
                         {
                             loader: 'postcss-loader',
                             options: {
@@ -65,7 +69,7 @@ function GenerateConfig() {
                 },
             ]
         },
-        optimization: {
+        optimization: isProduction ? {
             nodeEnv: 'production',
             flagIncludedChunks: true,
             usedExports: true,
@@ -75,35 +79,58 @@ function GenerateConfig() {
             removeAvailableModules: true,
             removeEmptyChunks: true,
             mergeDuplicateChunks: true,
-        },
-        devtool: 'source-map',
+            splitChunks: {
+                cacheGroups: {
+                    common: {
+                        name: 'common',
+                        chunks: 'all',
+                        minChunks: 2, // Extract modules shared across at least 2 chunks
+                        test: /[\\/]node_modules[\\/](purify.js)[\\/]/, // Only extract purify.js here
+                        enforce: true,
+                    }
+                }
+            }
+        } : undefined,
 
+        plugins: [
+            new MiniCssExtractPlugin(),
+            {
+                apply: (compiler) => {
+                    compiler.hooks.afterEmit.tap('AfterEmitPlugin', () => {
+                        const revFile = 'rev.txt';
+                        let currentRevision = fs.existsSync(revFile) ? parseInt(fs.readFileSync(revFile)) || 0 : 0;
+                        fs.writeFileSync(revFile, (currentRevision + 1).toString());
+                    });
+                }
+            }
+        ]
     };
 
-    if (process.env["ANTHERA_PRODUCTION"] !== "true") {
+    if (!isProduction) {
         console.log("\x1b[41mCompiling in Development Mode\x1b[0m");
-        delete(config.optimization);
-        config.plugins.push(
-            new BundleAnalyzerPlugin()
-        )
+        //config.plugins.push(new BundleAnalyzerPlugin()); // Disabled by default for faster dev builds
     }
 
     return config;
 }
-
 
 function getEntryPoints() {
     const entryPoints = {};
 
     // Read entry point from /src/index.js
     entryPoints['index'] = path.resolve(srcPath, 'index.js');
-    entryPoints['portfolio'] = path.resolve(srcPath, 'js/views/portfolio.js');
-    entryPoints['home'] = path.resolve(srcPath, 'js/views/home.js');
 
-
-
-    entryPoints['admin_portfolio'] = path.resolve(srcPath, 'js/views/admin_portfolio.js');
-    entryPoints['admin_portfolio_edit'] = path.resolve(srcPath, 'js/views/admin_portfolio_edit.js');
+    // Read all .js files in the /src/views directory
+    var viewsPath = path.resolve(srcPath, 'js/views');
+    if (fs.existsSync(viewsPath)) {
+        const viewFiles = fs.readdirSync(viewsPath);
+        viewFiles.forEach((file) => {
+            if (file.endsWith('.js')) {
+                const distName = path.basename(file).replace(".js", "");
+                entryPoints[distName] = path.resolve(viewsPath, file);
+            }
+        });
+    }
 
     return entryPoints;
 }

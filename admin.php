@@ -34,8 +34,10 @@ $router->get("/oauth", function () {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $response = json_decode(curl_exec($curl), true);
 
+    echo "is admin " . json_encode($response);
+
     if($response['id'] == 1) $_SESSION['admin'] = 1;
-    header("Location: /admin/gallery");
+    //header("Location: /admin/gallery");
 });
 
 if($is_admin) {
