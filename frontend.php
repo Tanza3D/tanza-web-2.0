@@ -43,7 +43,7 @@
 
     <meta property="og:tags" content="<?= Site\Embed::$article["tags"] ?>"/>
     <meta property="og:locale" content="en_GB"/>
-    <meta property="og:site_name" content="Osekai"/>
+    <meta property="og:site_name" content="tanza.me"/>
 
 
     <meta name="description" content="<?= Site\Embed::$title ?>">
@@ -51,7 +51,7 @@
     <meta name="description" content="<?= Site\Embed::$description ?>">
 
 
-    <meta name="twitter:site" content="Osekai">
+    <meta name="twitter:site" content="tanza.me">
     <meta name="twitter:title" content="<?= Site\Embed::$title ?>">
     <meta name="twitter:description" content="<?= Site\Embed::$description ?>">
     <?php
