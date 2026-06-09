@@ -33,6 +33,34 @@
         }
     }
 }
+.header-links-mobile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .logo-anim {
+        margin: 14px 0px;
+            height: 40px;
+            width: auto;
+
+    }
+    >div {
+        align-self: stretch;
+        display: flex;
+        >a {
+            flex: 1;
+            text-align: center;
+            padding: 16px 8px;
+            background: linear-gradient(to bottom, #0000, var(--col-l1));
+            &.active {
+
+                background: linear-gradient(to bottom, var(--col-l6), hsl(var(--accent-1)));
+                color: white;
+                font-weight: 900;
+                border-bottom: 4px solid white;
+            }
+        }
+    }
+}
 
 
 

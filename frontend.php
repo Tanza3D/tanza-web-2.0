@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="/frontend/dist/index.css?2">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +93,7 @@ function navLink(string $href, string $label): string
 
 ?>
 
-<div class="header-links">
+<div class="header-links desktop">
     <div>
         <?= navLink('/', 'Home') ?>
         <?= navLink('/about', 'About Me') ?>
@@ -110,6 +110,22 @@ function navLink(string $href, string $label): string
 
 
     <div>
+        <?= navLink('/portfolio', 'Portfolio') ?>
+        <?= navLink('/gallery', 'Artwork') ?>
+    </div>
+</div>
+<div class="header-links-mobile mobile">
+    <svg width="138" height="56" viewBox="0 0 138 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-anim">
+        <path d="M0 0H15.8294V16H0V0Z" fill="#FA31D9" class="t"/>
+        <path d="M23.7441 0H39.5735V56H23.7441V0Z" fill="#FA31D9" class="t"/>
+        <path d="M98.4265 40H114.256V56H98.4265V40Z" fill="#67ADFF" class="a"/>
+        <path d="M98.4265 0L138 36V56L98.4265 20V0Z" fill="#67ADFF" class="a"/>
+        <path d="M48.7059 0L77.5808 1.03289e-05L59.9925 16L48.7059 16V0Z" fill="#5A1FFF" class="z"/>
+        <path d="M88.2794 40H66.2941L88.2794 20V4.11803e-05L48.7059 36V56H88.2794V40Z" fill="#5A1FFF" class="z"/>
+    </svg>
+    <div>
+        <?= navLink('/', 'Home') ?>
+        <?= navLink('/about', 'About Me') ?>
         <?= navLink('/portfolio', 'Portfolio') ?>
         <?= navLink('/gallery', 'Artwork') ?>
     </div>

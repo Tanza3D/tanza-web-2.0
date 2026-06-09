@@ -60,9 +60,9 @@ body:not(.loaded) .page {
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 800px) {
     body {
-        --padding: 20px;
+        --padding: 0px;
     }
 }
 
@@ -105,5 +105,9 @@ body:not(.loaded) .page {
         object-fit: cover;
         filter: blur(50px) brightness(0.8);
 
+    }
+    @media (max-width: 800px) {
+        border-radius: 0px;
+        height: 400px;
     }
 }

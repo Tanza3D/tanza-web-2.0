@@ -104,6 +104,8 @@
         align-items: center;
         justify-content: flex-start;
         gap: 12px;
+        flex-wrap: wrap;
+        padding-top: 50px;
         a {
             backdrop-filter: blur(12px);
             transition: all 0.2s ease;
@@ -196,5 +198,28 @@
         animation: logo-a 0.5s ease;
         animation-delay: 0.2s;
         animation-fill-mode: both;
+    }
+}
+@media (max-width: 800px) {
+    .home-area {
+        background: linear-gradient(to bottom, #000a, #0000), var(--bg-mobile);
+        background-size: cover;
+        background-position: center;
+        padding: 30px;
+        border-radius: 0px;
+
+        .topleft {
+            h1 {
+                font-size: 70px;
+            }
+            p {
+                font-size: 20px;
+                max-width: 70vw;
+            }
+
+            .links {
+                max-width: 300px;
+            }
+        }
     }
 }

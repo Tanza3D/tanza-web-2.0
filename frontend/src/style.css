@@ -166,37 +166,14 @@ position: absolute !important;;
     font-family: sans-serif;
 }
 
-@media (--mobile) {
-    #desktop {
-        display: none !important;
-    }
-
+@media(max-width: 800px) {
     .desktop {
-        display: none !important;
-    }
-
-    body {
-        --toolbar-height: 60px !important;
+        display: none;
     }
 }
-@media (--desktop) {
-    #mobile {
-        display: none !important;
-    }
-
+@media(min-width: 801px) {
     .mobile {
-        display: none !important;
-    }
-}
-
-
-@media (--desktop-tablet) {
-    #tablet {
-        display: none !important;
-    }
-
-    .tablet {
-        display: none !important;
+        display: none;
     }
 }
 
