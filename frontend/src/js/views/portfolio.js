@@ -63,7 +63,7 @@ function CreateImage(item, simple = false) {
         animation_delay += 0.05;
     }
 
-    if (data.ID !== -1) {
+    if (item.ID !== -1) {
         container.setAttribute("href", `/portfolio/${item.ID}`);
     } else {
         container.setAttribute("href", `${item.Link}`);
