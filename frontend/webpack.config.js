@@ -104,6 +104,7 @@ function getEntryPoints() {
 
     entryPoints['admin_portfolio'] = path.resolve(srcPath, 'js/views/admin_portfolio.js');
     entryPoints['admin_portfolio_edit'] = path.resolve(srcPath, 'js/views/admin_portfolio_edit.js');
+    entryPoints['admin_files'] = path.resolve(srcPath, 'js/views/admin_files.js');
 
     return entryPoints;
 }

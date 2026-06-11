@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/frontend/dist/index.css?2">
+    <link rel="stylesheet" href="/frontend/dist/index.css?6">
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -21,7 +21,7 @@
     <title>Tanza</title>
 
 
-    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?2">
+    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?6">
 
     <?php
     \Site\Embed::AddTags(Site\Embed::$title);
