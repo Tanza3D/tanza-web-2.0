@@ -36,11 +36,22 @@
             <div class="text">
                 <small class="flair-<?= strtolower($flair) ?>"><?= $flair ?></small>
                 <h1><?= $name ?></h1>
-                <p><?= $description ?></p>
+                <p><?= makeLinksClickable($description) ?></p>
             </div>
             <a href="<?= $link ?>">View Project</a>
         </div>
         <?php
+    }
+
+    function makeLinksClickable(string $html): string {
+        return preg_replace_callback(
+            '/(https?:\/\/[^\s<>"]+)/i',
+            function (array $matches): string {
+                $url = htmlspecialchars($matches[1], ENT_QUOTES, 'UTF-8');
+                return '<a href="' . $url . '" target="_blank" rel="noopener noreferrer">' . $url . '</a>';
+            },
+            $html
+        );
     }
 
     $current_projects = [
@@ -94,28 +105,28 @@
         [
             'key' => 'cubey',
             'name' => "Cubey's Adventures",
-            'description' => "Cubey / Cubey's Adventures is a 2d platformer game I made back in 2020, we're working on a new version so keep an eye out!",
+            'description' => "Cubey / Cubey's Adventures is a 2D platformer game I made back in 2020, we're working on a new version so keep an eye out!",
             'link' => 'https://cubey.cc',
             'date' => '2021',
         ],
         [
             'key' => 'eclipsedteam',
             'name' => 'EclipsedTeam',
-            'description' => 'Me and Matteo worked on EclipsedTeam back in 2020, our primary focus was creating intricate skins for osu!, though we also developed osu!trigen at the same time',
+            'description' => 'Me and Matteo worked on EclipsedTeam back in 2020, our primary focus was creating intricate skins for osu!, though we also developed osu!trigen at the same time.',
             'link' => 'https://sites.google.com/view/eclipsedteam',
             'date' => '2020',
         ],
         [
             'key' => 'trigen',
             'name' => 'osu!trigen',
-            'description' => "Small piece of software built using Unity to generate animated triangle backgrounds in the style of osu!'s designs",
+            'description' => "Small piece of software built using Unity to generate animated triangle backgrounds in the style of osu!'s designs.",
             'link' => 'https://github.com/Tanza3D/osu-trigen/tree/main',
             'date' => '2020',
         ],
         [
             'key' => 'reddark',
             'name' => 'RedDark',
-            'description' => 'as seen on https://www.pcmag.com/news/quiet-day-on-reddit-major-subreddits-go-dark-to-protest-api-changes',
+            'description' => 'As seen on https://www.pcmag.com/news/quiet-day-on-reddit-major-subreddits-go-dark-to-protest-api-changes',
             'link' => 'https://github.com/Tanza3D/reddark',
             'date' => '2023',
         ],
