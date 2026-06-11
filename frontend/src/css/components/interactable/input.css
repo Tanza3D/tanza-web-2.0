@@ -2,13 +2,15 @@
     background-color: var(--col-d1);
     width: 100%;
     cursor: text;
+    outline:0px solid var(--col-l4);
 }
 
 .input:hover {
     background-color: var(--col-d2);
+    outline:0px solid var(--col-l4);
 }
 
 .input:focus {
     background-color: var(--col-l2);
-    outline: 2px solid var(--col-l4);
+    outline: 2px solid hsl(var(--accent-1));
 }

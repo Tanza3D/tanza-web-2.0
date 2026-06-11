@@ -1,9 +1,9 @@
 <?php
-if(\Database\Memcache::get("gallery") == null) {
+if(\Database\Memcache::get("gallery4") == null) {
     $url = 'https://anthera.art/api/qgallery';
 
     $body = json_encode([
-        'query' => '@creator=1 @order=date-created',
+        'query' => '@author=1 @order=date-created',
         'offset' => 0,
         'limit' => 500,
     ]);
@@ -46,6 +46,7 @@ $data = json_decode($response, true);
         </a>
     </div>
     <p>Here you can find all my best art from over the years!</p>
+    <p>This page pulls data from my Anthera profile using its API! You can view art I've commissioned on Anthera as well.</p>
 
 </div>
 

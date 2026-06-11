@@ -2,8 +2,18 @@ import '../../css/views/gallery.css'
 import {D2} from "../utils/d2";
 import LazyLoad from "vanilla-lazyload";
 
-const items = posts.items.filter(item => item.Images && item.Images.length > 0 && item.Authors.length <= 1);
+const items = posts.items.filter(item => {
+    if (!item.Images || item.Images.length === 0) return false;
+    if (item.Authors.length > 3) return false;
 
+    const isArtist = item.Authors.some(a => (a.Type === "Artist" || a.Type == "0") && a.AuthorID === 1);
+    if (!isArtist) {
+        console.log("excluded:", item.Name, item.Authors);
+        return false;
+    }
+
+    return true;
+});
 
 // -- sidebar state --
 var imageCounts = {};
@@ -14,8 +24,18 @@ var sidebar = document.getElementById("gallery-sidebar");
 
 // month name lookup
 var monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
 ];
 
 // -- aspect helpers --
@@ -39,7 +59,10 @@ function buildRows(items) {
         var wide = ratio >= 2.4;
 
         if (currentYear !== null && year !== currentYear && batch.length > 0) {
-            rows.push({ items: batch, wide: false });
+            rows.push({
+                items: batch,
+                wide: false
+            });
             batch = [];
             counter = 0;
         }
@@ -49,14 +72,20 @@ function buildRows(items) {
         counter += ratio;
 
         if (counter >= limit || (!flushedFirst && wide)) {
-            rows.push({ items: batch, wide: wide && batch.length === 1 });
+            rows.push({
+                items: batch,
+                wide: wide && batch.length === 1
+            });
             batch = [];
             counter = 0;
             flushedFirst = true;
         }
     }
 
-    if (batch.length > 0) rows.push({ items: batch, wide: false });
+    if (batch.length > 0) rows.push({
+        items: batch,
+        wide: false
+    });
 
     return rows;
 }
@@ -71,21 +100,35 @@ function trackDate(item) {
     var mkey = "m" + month;
 
     if (!imageCounts[ykey]) {
-        imageCounts[ykey] = { count: 0, name: year };
+        imageCounts[ykey] = {
+            count: 0,
+            name: year
+        };
     }
     if (!imageCounts[ykey][mkey]) {
-        imageCounts[ykey][mkey] = { count: 0, name: month };
+        imageCounts[ykey][mkey] = {
+            count: 0,
+            name: month
+        };
     }
 
     imageCounts[ykey].count++;
     imageCounts[ykey][mkey].count++;
 
-    return { year, month, ykey, mkey };
+    return {
+        year,
+        month,
+        ykey,
+        mkey
+    };
 }
 
 // -- create a single gallery card --
 function createCard(item) {
-    var { ykey, mkey } = trackDate(item);
+    var {
+        ykey,
+        mkey
+    } = trackDate(item);
     var date = new Date(item.Date);
 
     var img0 = item.Images[0];
@@ -100,14 +143,12 @@ function createCard(item) {
     card.style.setProperty("--ratio", `${w}/${h}`);
 
     var imgWrap = D2.Div("gallery-card-img", () => {
-        D2.LazyImage(
-            "gallery-img lazy",
-            links.thumbnail,
-            `data:image/jpeg;base64,${blur}`
-        );
+        D2.LazyImage("gallery-img lazy", links.thumbnail, `data:image/jpeg;base64,${blur}`);
+        D2.LazyImage("gallery-img gallery-img-big lazy", links.small, `data:image/jpeg;base64,${img0.Image}`);
     });
     card.appendChild(imgWrap);
 
+    console.log(item);
     var overlay = D2.Div("gallery-card-overlay", () => {
         D2.Text("h2", item.Name, "gallery-card-name");
         D2.Text("p", date.toLocaleString("en", {
@@ -117,6 +158,11 @@ function createCard(item) {
         }), "gallery-card-date");
     });
     card.appendChild(overlay);
+
+    card.appendChild(D2.Div("gallery-card-creator", () => {
+        D2.Image("", "https://i1.anthera.art/u/" + item.Creator + "/pfp-tiny.jpg")
+        D2.Text("p", item.CreatorName, "creator-name");
+    }))
 
     return card;
 }
@@ -153,7 +199,10 @@ function renderGrid() {
 // -- sidebar --
 function doScrollTo(element) {
     var y = element.getBoundingClientRect().top + window.pageYOffset - 40;
-    window.scrollTo({ top: y, behavior: "smooth" });
+    window.scrollTo({
+        top: y,
+        behavior: "smooth"
+    });
 }
 
 function generateSidebar() {
@@ -178,18 +227,16 @@ function generateSidebar() {
             monthEl.appendChild(monthCount);
             monthsEl.appendChild(monthEl);
 
-            ;(function(capturedMkey, capturedYkey) {
-                monthEl.onclick = function() {
-                    var target = document.querySelector(
-                        `[data-year="${capturedYkey}"][data-month="${capturedMkey}"]`
-                    );
+            ;(function (capturedMkey, capturedYkey) {
+                monthEl.onclick = function () {
+                    var target = document.querySelector(`[data-year="${capturedYkey}"][data-month="${capturedMkey}"]`);
                     if (target) doScrollTo(target);
                 };
             })(mkey, ykey);
         }
 
-        ;(function(capturedYkey) {
-            yearHead.onclick = function() {
+        ;(function (capturedYkey) {
+            yearHead.onclick = function () {
                 var target = document.querySelector(`[data-year="${capturedYkey}"]`);
                 if (target) doScrollTo(target);
             };
@@ -238,12 +285,13 @@ function calcVisible() {
     var yearEl = document.querySelector(`[data-sidebar-year="${visYear}"]`);
     if (yearEl) yearEl.classList.add("gsb-year-active");
 
-    var monthEl = yearEl
-        ? yearEl.querySelector(`[data-sidebar-month="${visMonth}"]`)
-        : null;
+    var monthEl = yearEl ? yearEl.querySelector(`[data-sidebar-month="${visMonth}"]`) : null;
     if (monthEl) {
         monthEl.classList.add("gsb-month-active");
-        sidebar.scrollTo({ top: monthEl.offsetTop - sidebar.clientHeight / 2, behavior: "smooth" });
+        sidebar.scrollTo({
+            top: monthEl.offsetTop - sidebar.clientHeight / 2,
+            behavior: "smooth"
+        });
     }
 }
 

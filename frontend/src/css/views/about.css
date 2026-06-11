@@ -29,6 +29,7 @@
             width: 600px;
             height: 140%;
             bottom: 0;
+            pointer-events: none;
             left: -100px;
         }
 
