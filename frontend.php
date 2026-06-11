@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="/frontend/dist/index.css?7">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +17,7 @@
 
 
     <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?7">
+
 
     <?php
     \Site\Embed::AddTags(Site\Embed::$title);
