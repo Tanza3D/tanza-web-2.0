@@ -141,7 +141,7 @@ function navLink(string $href, string $label): string
 </div>
 </body>
 
-<script src="/frontend/dist/<?= $pagename ?>.bundle.js?9" type="module"></script>
+<script src="/frontend/dist/<?= $pagename ?>.bundle.js?16" type="module"></script>
 
 <script rel="preload" src="/frontend/dist/index.bundle.js?8" type="module"></script>
 </html>
