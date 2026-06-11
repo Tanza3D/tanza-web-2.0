@@ -75,7 +75,7 @@
             'key' => 'tonefury',
             'name' => 'TONE::FURY',
             'description' => "TONE::FURY is a record label specializing in hardstyle and harderstyle music - I'm the lead technical director and designer on the project!",
-            'link' => 'https://untonemusic.com',
+            'link' => 'https://tonefury.com',
         ],
         [
             'key' => 'anthera',
@@ -137,7 +137,7 @@
         [
             'key' => 'timeguessr',
             'name' => 'TIMEGUESSR',
-            'description' => 'I designed the homepage, the main map picker area, and most importantly the results screen. For reasons beyond me, I am sadly not credited for any of this on the site.',
+            'description' => 'I designed the the main map picker area, and most importantly the results screen. For reasons beyond me, I am sadly not credited for any of this on the site.',
             'link' => 'https://timeguessr.com',
             'date' => '2023',
             'flair' => 'Past Contributor',
