@@ -2,10 +2,10 @@
 $is_admin = false;
 session_start();
 
-if(isset($_SESSION['admin']) && $_SESSION['admin'] == true) $is_admin = true;
+if (isset($_SESSION['admin']) && $_SESSION['admin'] == true) $is_admin = true;
 
 $router->get("/login", function () {
-   header("Location: " . LOGIN_URL );
+    header("Location: " . LOGIN_URL);
 });
 $router->get("/oauth", function () {
     $post = [
@@ -25,7 +25,6 @@ $router->get("/oauth", function () {
     $token = $response['access_token'];
 
 
-
     $headers = [
         'Authorization: Bearer ' . $token,
         'Content-Type: application/json'
@@ -36,16 +35,21 @@ $router->get("/oauth", function () {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $response = json_decode(curl_exec($curl), true);
 
-    echo "is admin " . json_encode($response);
+    //echo "is admin " . json_encode($response);
 
-    if($response['id'] == 1) $_SESSION['admin'] = 1;
+    if ($response['id'] == 1) $_SESSION['admin'] = 1;
     header("Location: /admin/portfolio");
 });
 
-if($is_admin) {
+if ($is_admin) {
     $router->get("/admin/gallery", function () {
         Page("gallery_admin");
     });
+
+    $router->all("/admin/files", function () {
+        Page("admin_files");
+    });
+
     $router->get("/admin/portfolio", function () {
         Page("admin_portfolio");
     });

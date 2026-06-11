@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/frontend/dist/index.css?2">
+    <link rel="stylesheet" href="/frontend/dist/index.css?7">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -15,7 +15,7 @@
     <title>Tanza</title>
 
 
-    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?2">
+    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?7">
 
     <?php
     \Site\Embed::AddTags(Site\Embed::$title);
@@ -139,7 +139,7 @@ function navLink(string $href, string $label): string
 </div>
 </body>
 
-<script src="/frontend/dist/<?= $pagename ?>.bundle.js" type="module"></script>
+<script src="/frontend/dist/<?= $pagename ?>.bundle.js?7" type="module"></script>
 
-<script rel="preload" src="/frontend/dist/index.bundle.js" type="module"></script>
+<script rel="preload" src="/frontend/dist/index.bundle.js?7" type="module"></script>
 </html>
