@@ -1,7 +1,7 @@
 <?php
 $is_admin = false;
 session_start();
-
+//print_r($_SESSION);
 if(isset($_SESSION['admin']) && $_SESSION['admin'] == true) $is_admin = true;
 
 $router->get("/login", function () {
@@ -12,7 +12,8 @@ $router->get("/oauth", function () {
         'client_id' => CLIENT_ID,
         'client_secret' => CLIENT_SECRET,
         'code' => $_GET['code'],
-        'grant_type' => 'authorization_code'
+        'grant_type' => 'authorization_code',
+        'redirect_uri' =>  REDIRECT_URI
     ];
 
     $ch = curl_init(UNTONE_ID . '/api/oauth/token');
@@ -34,7 +35,12 @@ $router->get("/oauth", function () {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     $response = json_decode(curl_exec($curl), true);
 
+<<<<<<< HEAD
     echo "is admin " . json_encode($response);
+=======
+
+    //echo "is admin " . json_encode($response);
+>>>>>>> 8cf4e459001f93608a4c00028f594124e5ace761
 
     if($response['id'] == 1) $_SESSION['admin'] = 1;
     //header("Location: /admin/gallery");
@@ -46,6 +52,9 @@ if($is_admin) {
     });
     $router->get("/admin/portfolio", function () {
         Page("admin_portfolio");
+    });
+    $router->all("/admin/files", function () {
+        Page("admin_files");
     });
     $router->get("/admin/portfolio/{id}", function ($id) {
         Page("admin_portfolio_edit", $id);
