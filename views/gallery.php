@@ -33,6 +33,9 @@ if(\Database\Memcache::get("gallery") == null) {
     $response = \Database\Memcache::get("gallery");
 }
 $data = json_decode($response, true);
+
+\Site\Embed::SetTitle("Tanza / Gallery");
+\Site\Embed::SetDescription("Here you can find all my best art from over the years!");
 ?>
 <script>
     const posts = <?php echo json_encode($data); ?>;

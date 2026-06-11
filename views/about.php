@@ -1,3 +1,7 @@
+<?php
+\Site\Embed::SetTitle("Tanza / About Me");
+\Site\Embed::SetDescription("Learn more about me, my work, and my interests!");
+?>
 <div class="cool-header">
     <h1>About Me</h1>
 </div>
