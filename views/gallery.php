@@ -1,5 +1,5 @@
 <?php
-if(\Database\Memcache::get("gallery4") == null) {
+if(\Database\Memcache::get("gallery") == null) {
     $url = 'https://anthera.art/api/qgallery';
 
     $body = json_encode([
