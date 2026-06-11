@@ -36,6 +36,7 @@ var animation_delay = 0.3;
 
 function CreateImage(item, simple = false) {
     var container = Div("a", "image-container");
+    console.log(item);
     var url = item["Images"][0];
     if (!url.startsWith("http")) {
         url = `/img/portfolio/${item.ID}/medium.png`;
@@ -62,8 +63,11 @@ function CreateImage(item, simple = false) {
         animation_delay += 0.05;
     }
 
-    container.setAttribute("href", `/portfolio/${item.ID}`);
-
+    if (data.ID !== -1) {
+        container.setAttribute("href", `/portfolio/${item.ID}`);
+    } else {
+        container.setAttribute("href", `${item.Link}`);
+    }
     return container;
 }
 
