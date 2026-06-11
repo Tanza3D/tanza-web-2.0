@@ -67,6 +67,7 @@ function CreateImage(item, simple = false) {
         container.setAttribute("href", `/portfolio/${item.ID}`);
     } else {
         container.setAttribute("href", `${item.Link}`);
+        container.setAttribute("target", "_blank");
     }
     return container;
 }
