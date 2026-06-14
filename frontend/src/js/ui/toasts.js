@@ -17,7 +17,7 @@ var themes = {
     },
     "error": {
         "hue": "0",
-        "icon": "warning-circle",
+        "icon": "circle-alert",
         "time": -1
     },
     "success": {
@@ -30,6 +30,11 @@ var themes = {
         "icon": "info",
         "time": 9
     },
+    "warning": {
+        "hue": "40",
+        "icon": "alert-triangle",
+        "time": 15
+    }
 }
 
 export function PushToast({ theme = "default", content = "Unknown", time = null } = {}) {

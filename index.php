@@ -4,6 +4,16 @@ include("config.php");
 include("autoload.php");
 require __DIR__ . '/vendor/autoload.php';
 
+
+if (isset($_SERVER['CONTENT_TYPE']) && $_SERVER['CONTENT_TYPE'] === 'application/json') {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    if (json_last_error() === JSON_ERROR_NONE) {
+        $_POST = array_merge($_POST, $data);
+        $_REQUEST = array_merge($_REQUEST, $_POST);
+    }
+}
+
 // Create Router instance
 $router = new \Bramus\Router\Router();
 
@@ -38,8 +48,14 @@ $router->get("/", function() {
 $router->get("/portfolio", function() {
     Page("portfolio");
 });
+$router->get("/portfolio/{id}", function($item_id) {
+    Page("portfolio_item", $item_id);
+});
 $router->get("/gallery", function() {
     Page("gallery");
+});
+$router->get("/about", function() {
+    Page("about");
 });
 $router->post("/contact", function() {
     $try = \Database\Memcache::get("contact_from_".$_SERVER['REMOTE_ADDR']);

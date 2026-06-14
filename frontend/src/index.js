@@ -81,5 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(targetNode, config);
 
     window.loader.update();
+
+    setTimeout(() => {
+
+        document.body.classList.add("loaded");
+    }, 1)
 })
 

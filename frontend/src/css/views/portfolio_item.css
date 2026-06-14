@@ -1,0 +1,13 @@
+.portfolio-header-img {
+    width: 100%;
+    border-radius: 32px;
+    margin-top: -64px;
+}
+
+.portfolio-content {
+    max-width: 1200px;
+    background: var(--col-d2);
+    padding: 50px;
+    margin: 20px auto;
+    border-radius: var(--border-radius);
+}

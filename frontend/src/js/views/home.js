@@ -11,19 +11,31 @@ document.getElementById("contact-send").addEventListener("click", async (event) 
     event.preventDefault();
     document.getElementById("contact").classList.add("loading");
     try {
-        await DoRequest("POST", "/contact", {
+        let response = await DoRequest("POST", "/contact", {
             "from": email.value,
             "name": name.value,
             "body": body.value
         })
         document.getElementById("contact").classList.remove("loading");
+
         document.getElementById("contact").querySelector(".page-container").innerHTML = "<h1>Thanks! I'll get back to you soon!</h1>";
     } catch {
         PushToast({theme: "error", content: "Couldn't send, is the email correct?"})
         document.getElementById("contact").classList.remove("loading");
     }
 })
-
+let contactpopup = document.getElementById("contact");
+contactpopup.addEventListener("click", (e) => {
+    if(e.target == contactpopup) {
+        contactpopup.classList.remove("open");
+    }
+})
+document.getElementById("contact-button").addEventListener("click", () => {
+    contactpopup.classList.add("open");
+})
+document.getElementById("contact-close").addEventListener("click", () => {
+    contactpopup.classList.remove("open");
+})
 function checkInputs() {
     if (
         email.value == ""

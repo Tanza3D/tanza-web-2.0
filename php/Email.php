@@ -17,7 +17,8 @@ class Email {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-        $mail->setFrom($from, $name);
+        $mail->setFrom('id@untone.uk', 'Tanza.me Contact Form');
+        $mail->addReplyTo($from, $name);
         $mail->addAddress("archie@untone.uk");     //Add a recipient
 
         $mail->isHTML(true);

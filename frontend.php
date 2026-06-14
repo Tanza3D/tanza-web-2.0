@@ -2,26 +2,22 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/frontend/dist/index.css?6">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link rel="stylesheet" href="/frontend/dist/index.css?7">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap"
-          rel="stylesheet">
-
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
     <link id="favicon" rel="icon" href="/favicon.svg">
     <meta name="darkreader-lock">
     <title>Tanza</title>
 
 
-    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?6">
+    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?7">
+
 
     <?php
     \Site\Embed::AddTags(Site\Embed::$title);
@@ -49,7 +45,7 @@
 
     <meta property="og:tags" content="<?= Site\Embed::$article["tags"] ?>"/>
     <meta property="og:locale" content="en_GB"/>
-    <meta property="og:site_name" content="Osekai"/>
+    <meta property="og:site_name" content="tanza.me"/>
 
 
     <meta name="description" content="<?= Site\Embed::$title ?>">
@@ -57,7 +53,7 @@
     <meta name="description" content="<?= Site\Embed::$description ?>">
 
 
-    <meta name="twitter:site" content="Osekai">
+    <meta name="twitter:site" content="tanza.me">
     <meta name="twitter:title" content="<?= Site\Embed::$title ?>">
     <meta name="twitter:description" content="<?= Site\Embed::$description ?>">
     <?php
@@ -90,19 +86,62 @@
 </head>
 
 <body>
-<div class="header-links">
-    <a href="/portfolio">PORTFOLIO</a>
-    <a href="/gallery">GALLERY</a>
-    <a href="/">HOME</a>
-</div>
-<div class="pages">
-    <div class="page">
-        <?= $page ?>
+<?php
+function navLink(string $href, string $label): string
+{
+    $active = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) === $href;
+    return '<a href="' . $href . '"' . ($active ? ' class="active"' : '') . '>' . $label . '</a>';
+}
+
+?>
+
+<div class="header-links desktop">
+    <div>
+        <?= navLink('/', 'Home') ?>
+        <?= navLink('/about', 'About Me') ?>
     </div>
+
+    <svg width="138" height="56" viewBox="0 0 138 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-anim">
+        <path d="M0 0H15.8294V16H0V0Z" fill="#FA31D9" class="t"/>
+        <path d="M23.7441 0H39.5735V56H23.7441V0Z" fill="#FA31D9" class="t"/>
+        <path d="M98.4265 40H114.256V56H98.4265V40Z" fill="#67ADFF" class="a"/>
+        <path d="M98.4265 0L138 36V56L98.4265 20V0Z" fill="#67ADFF" class="a"/>
+        <path d="M48.7059 0L77.5808 1.03289e-05L59.9925 16L48.7059 16V0Z" fill="#5A1FFF" class="z"/>
+        <path d="M88.2794 40H66.2941L88.2794 20V4.11803e-05L48.7059 36V56H88.2794V40Z" fill="#5A1FFF" class="z"/>
+    </svg>
+
+
+    <div>
+        <?= navLink('/portfolio', 'Portfolio') ?>
+        <?= navLink('/gallery', 'Artwork') ?>
+    </div>
+</div>
+<div class="header-links-mobile mobile">
+    <svg width="138" height="56" viewBox="0 0 138 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-anim">
+        <path d="M0 0H15.8294V16H0V0Z" fill="#FA31D9" class="t"/>
+        <path d="M23.7441 0H39.5735V56H23.7441V0Z" fill="#FA31D9" class="t"/>
+        <path d="M98.4265 40H114.256V56H98.4265V40Z" fill="#67ADFF" class="a"/>
+        <path d="M98.4265 0L138 36V56L98.4265 20V0Z" fill="#67ADFF" class="a"/>
+        <path d="M48.7059 0L77.5808 1.03289e-05L59.9925 16L48.7059 16V0Z" fill="#5A1FFF" class="z"/>
+        <path d="M88.2794 40H66.2941L88.2794 20V4.11803e-05L48.7059 36V56H88.2794V40Z" fill="#5A1FFF" class="z"/>
+    </svg>
+    <div>
+        <?= navLink('/', 'Home') ?>
+        <?= navLink('/about', 'About Me') ?>
+        <?= navLink('/portfolio', 'Portfolio') ?>
+        <?= navLink('/gallery', 'Artwork') ?>
+    </div>
+</div>
+<div class="page">
+    <?= $page ?>
+</div>
+
+<div class="loader">
+
 </div>
 </body>
 
-<script src="/frontend/dist/<?= $pagename ?>.bundle.js" type="module"></script>
+<script src="/frontend/dist/<?= $pagename ?>.bundle.js?16" type="module"></script>
 
-<script rel="preload" src="/frontend/dist/index.bundle.js" type="module"></script>
+<script rel="preload" src="/frontend/dist/index.bundle.js?8" type="module"></script>
 </html>

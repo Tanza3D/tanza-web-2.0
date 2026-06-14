@@ -6,17 +6,21 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: "Figtree", sans-serif;
     color: var(--col-text-l1);
     background-color: var(--col-base);
     min-height: 100vh;
     overflow-x: hidden;
     max-width: 100vw;
+
+    --padding: 36px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 
 h1 {
-    font-family: "RobotoFlex", sans-serif;
     color: #FA31D9;
     font-stretch: 251%;
     font-variation-settings: 'GRAD' 150, 'XOPQ' 96, 'XTRA' 468, 'YOPQ' 79, 'YTAS' 750, 'YTDE' -203, 'YTFI' 738, 'YTLC' 514, 'YTUC' 712, 'slnt' 0;
@@ -43,7 +47,67 @@ body:has(.portfolio-overlay-open) {
     opacity: 1;
 }
 
-.pages {
-    max-width: 100vw;
+.page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+body:not(.loaded) .page {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+@media (max-width: 800px) {
+    body {
+        --padding: 0px;
+    }
+}
+
+.cool-header {
+    margin: 0px var(--padding);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    h1 {
+        font-size: 60px;
+        color: white;
+        font-weight: 100;
+    }
+    p {
+        font-size: 20px;
+        color: white;
+        font-weight: 300;
+        max-width: 900px;
+    }
+    height: 300px;
+    background-image: url("/img/portfolio/1759843785/1.png");
+    background-size: cover;
+    background-position: center;
+    margin-bottom: -90px;
+    position: relative;
+
     overflow: hidden;
+    z-index: -1;
+    >* {
+        position: relative;
+        z-index: 2;
+    }
+    .blur-img {
+        z-index: 1;
+        position: absolute;
+        width: 140%;
+        height: 190%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+        filter: blur(50px) brightness(0.8);
+
+    }
+    @media (max-width: 800px) {
+        border-radius: 0px;
+        height: 400px;
+    }
 }

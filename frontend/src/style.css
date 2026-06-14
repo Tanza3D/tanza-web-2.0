@@ -166,37 +166,14 @@ position: absolute !important;;
     font-family: sans-serif;
 }
 
-@media (--mobile) {
-    #desktop {
-        display: none !important;
-    }
-
+@media(max-width: 800px) {
     .desktop {
-        display: none !important;
-    }
-
-    body {
-        --toolbar-height: 60px !important;
+        display: none;
     }
 }
-@media (--desktop) {
-    #mobile {
-        display: none !important;
-    }
-
+@media(min-width: 801px) {
     .mobile {
-        display: none !important;
-    }
-}
-
-
-@media (--desktop-tablet) {
-    #tablet {
-        display: none !important;
-    }
-
-    .tablet {
-        display: none !important;
+        display: none;
     }
 }
 
@@ -235,9 +212,7 @@ position: absolute !important;;
 .markdown-content img {
     max-width: 100%;
     max-height: 50vh;
-    background-color: #0002;
-    outline: 1px solid #fff2;
-    padding: 8px;
+    border-radius: 8px;
 }
 .markdown-content p {
     font-size: 20px;
