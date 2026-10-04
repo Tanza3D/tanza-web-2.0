@@ -125,12 +125,17 @@ function navLink(string $href, string $label): string
         <path d="M48.7059 0L77.5808 1.03289e-05L59.9925 16L48.7059 16V0Z" fill="#5A1FFF" class="z"/>
         <path d="M88.2794 40H66.2941L88.2794 20V4.11803e-05L48.7059 36V56H88.2794V40Z" fill="#5A1FFF" class="z"/>
     </svg>
-    <div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', document.body.classList.toggle('nav-open'))">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="nav-menu">
         <?= navLink('/', 'Home') ?>
         <?= navLink('/about', 'About Me') ?>
         <?= navLink('/portfolio', 'Portfolio') ?>
         <?= navLink('/gallery', 'Artwork') ?>
-    </div>
+    </nav>
 </div>
 <div class="page">
     <?= $page ?>

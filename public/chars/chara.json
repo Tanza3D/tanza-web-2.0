@@ -1,0 +1,77 @@
+[
+  {
+    "universe": "Tanza",
+    "characters": {
+      "tanza": {
+        "name": "Tanza",
+        "species": "Protogen",
+        "pronouns": "he/him",
+        "display": {
+        },
+        "mobile_offset": "-8%"
+      },
+      "tentel": {
+        "name": "Tentel",
+        "species": "Protogen",
+        "pronouns": "he/him",
+        "display": {
+        }
+      },
+      "ignira": {
+        "name": "Ignira",
+        "species": "Protogen",
+        "pronouns": "she/her",
+        "display": {
+        }
+      },
+      "david": {
+        "name": "David Asada",
+        "species": "Human",
+        "pronouns": "he/him",
+        "display": {
+        }
+      }
+    }
+  },
+  {
+    "universe": "Ragon",
+    "characters": {
+      "ragon": {
+        "name": "Ragon",
+        "species": "Lizard",
+        "pronouns": "he/him",
+        "display": {
+          "t2-char-logo": {
+            "height": "150px"
+          }
+        },
+        "mobile_offset": "-4%"
+      },
+      "arvel": {
+        "name": "Arvel",
+        "species": "Bird",
+        "pronouns": "he/him",
+        "display": {
+        },
+        "mobile_offset": "10%"
+      }
+    }
+  },
+  {
+    "universe": "none",
+    "characters": {
+      "zerkon": {
+        "name": "Zerkon",
+        "species": "Synth",
+        "pronouns": "he/him",
+        "display": {
+
+          "t2-char-logo": {
+            "height": "110px"
+          }
+        },
+        "mobile_offset": "-12%"
+      }
+    }
+  }
+]
