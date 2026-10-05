@@ -57,6 +57,9 @@ $router->get("/gallery", function() {
 $router->get("/about", function() {
     Page("about");
 });
+$router->get("/characters", function() {
+    Page("characters");
+});
 $router->post("/contact", function() {
     $try = \Database\Memcache::get("contact_from_".$_SERVER['REMOTE_ADDR']);
     if($try == true) echo json_encode("too_fast");

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/frontend/dist/index.css?7">
+    <link rel="stylesheet" href="/frontend/dist/index.css?8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -16,7 +16,7 @@
     <title>Tanza</title>
 
 
-    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?7">
+    <link rel="stylesheet" href="/frontend/dist/<?= $pagename ?>.css?8">
 
 
     <?php
@@ -125,12 +125,17 @@ function navLink(string $href, string $label): string
         <path d="M48.7059 0L77.5808 1.03289e-05L59.9925 16L48.7059 16V0Z" fill="#5A1FFF" class="z"/>
         <path d="M88.2794 40H66.2941L88.2794 20V4.11803e-05L48.7059 36V56H88.2794V40Z" fill="#5A1FFF" class="z"/>
     </svg>
-    <div>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', document.body.classList.toggle('nav-open'))">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="nav-menu">
         <?= navLink('/', 'Home') ?>
         <?= navLink('/about', 'About Me') ?>
         <?= navLink('/portfolio', 'Portfolio') ?>
         <?= navLink('/gallery', 'Artwork') ?>
-    </div>
+    </nav>
 </div>
 <div class="page">
     <?= $page ?>
@@ -141,7 +146,7 @@ function navLink(string $href, string $label): string
 </div>
 </body>
 
-<script src="/frontend/dist/<?= $pagename ?>.bundle.js?16" type="module"></script>
+<script src="/frontend/dist/<?= $pagename ?>.bundle.js?17" type="module"></script>
 
-<script rel="preload" src="/frontend/dist/index.bundle.js?8" type="module"></script>
+<script rel="preload" src="/frontend/dist/index.bundle.js?17" type="module"></script>
 </html>

@@ -1,0 +1,553 @@
+.character-panel {
+    border-radius: 64px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media (max-width: 1000px) {
+        border-radius: 0;
+        height: auto;
+        overflow: visible;
+    }
+
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @media (max-width: 1000px) {
+            position: relative !important;
+            height: calc(100dvh - 100px);
+            overflow: hidden;
+        }
+
+        .t2-bg, .t2-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            --parallax-scale: -5px;
+            translate: calc(var(--parallax-x, 0) * var(--parallax-scale)) calc(var(--parallax-y, 0) * var(--parallax-scale));
+            scale: 1.04;
+            &.t2-bg {
+                --parallax-scale: -15px;
+            }
+        }
+
+        .char {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            aspect-ratio: 1401/934;
+
+            @media (max-width: 1000px) {
+                > img {
+
+                    margin-left: calc(var(--mobile-offset, 0px) + max(0px, calc(200px - 8vw)));
+                }
+            }
+
+            > img {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+
+                --parallax-scale: 20px;
+                transform: translate(calc(var(--parallax-x, 0) * var(--parallax-scale)), calc(var(--parallax-y, 0) * var(--parallax-scale))) scale(1.07);
+            }
+
+            .t2-char-bg-lower {
+                --parallax-scale: 5px;
+            }
+
+            .t2-char-bg-higher {
+                --parallax-scale: 10px;
+            }
+
+            .t2-char-img-lower {
+                --parallax-scale: 15px;
+            }
+
+            .t2-char-img-higher {
+                --parallax-scale: 25px;
+            }
+
+        }
+
+        @media (max-width: 1000px) {
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, #0000 50%, #000a);
+                z-index: 1;
+            }
+        }
+    }
+
+    .char-content {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 70px;
+        padding-right: 400px;
+        @media (max-width: 1000px) {
+            padding: 0px;
+            position: unset !important;
+            padding-bottom: 90px;
+            .char-content-logo {
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: absolute !important;
+                top: calc(100dvh - 300px) !important;
+                left: 40px;
+                right: 40px;
+            }
+
+            .char-content-inner {
+                padding: 40px;
+            }
+        }
+
+        .char-description{
+            max-width: 600px;
+            font-size: 20px;
+        }
+
+        .main-tab {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+
+            .buttons {
+                display: none !important;/* coming soon */
+                margin-top: auto;
+                display: flex;
+                gap: 20px;
+                >* {
+                    font-size: 22px;
+                    padding: 18px 38px;
+                    font-weight: 400;
+                    background: transparent;
+                    border: 2px solid white;
+                    color: white;
+                    cursor: pointer;
+                    transition: all 0.1s ease;
+                    &:hover {
+                        background: white;
+                        color: black;
+                        outline: 2px solid #fff4;
+                    }
+                    &:active {
+                        outline: 3px solid #fffa;
+                        background: #fffe;
+                    }
+                }
+            }
+        }
+
+
+        .t2-char-logo {
+            height: 140px;
+            width: auto;
+            margin-bottom: 20px;
+            transition: all 0.6s ease;
+
+            @media (max-width: 1000px) {
+                height: 90px !important;
+                max-width: 90vw;
+            }
+        }
+        .char-pronouns {
+            font-size: 30px;
+            font-weight: 300;
+            transition: all 0.4s ease;
+            margin-bottom: 40px;
+        }
+        &:has(*.tab-small-logo:not(.hidden)) {
+            .t2-char-logo {
+                height: 50px;
+            }
+            .char-pronouns {
+                font-size: 16px;
+            }
+        }
+        > h4 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .char-content-inner {
+            max-width: 900px;
+            height: calc(100% - 240px);
+            position: relative;
+        }
+        .tab {
+            transition: all 0.6s ease;
+        }
+        .tab.hidden {
+            opacity: 0;
+            top: 0;
+            transform: translateX(-30px);
+        }
+    }
+
+    .t2-char-img-lower, .t2-char-logo {
+        mask-image: linear-gradient(to right, black 40%, transparent 60%);
+        mask-size: 300% 100%;
+        mask-repeat: no-repeat;
+    }
+}
+
+@keyframes navbar-shrink-img {
+    0% {
+        height: 56px;
+    }
+    100% {
+        height: 32px;
+    }
+}
+
+@keyframes navbar-shrink {
+    100% {
+        height: 60px;
+    }
+}
+
+@keyframes navbar-shrink-button {
+    100% {
+        padding: 10px 20px;
+    }
+}
+
+.header-links {
+    animation: navbar-shrink 1.4s ease both;
+
+    svg {
+        height: 56px;
+        width: auto;
+        animation: navbar-shrink-img 1.4s ease both;
+    }
+
+    a {
+        animation: navbar-shrink-button 1.4s ease both;
+    }
+}
+
+.character-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    padding: 32px !important;
+    padding-top: 0px !important;
+    @media (max-width: 1000px) {
+        padding: 0px !important;
+    }
+
+    .carousel {
+        position: relative;
+        flex: 1;
+        /* panels sliding off-screen shouldn't widen the page */
+        overflow: clip;
+    }
+
+    .char-loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+
+        p {
+            font-size: 40px;
+        }
+
+        small {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    }
+
+    &.loaded {
+        .char-loader {
+            opacity: 0;
+        }
+    }
+
+    &:not(.loaded) {
+        .selector {
+            opacity: 0;
+            transform: translateY(40px);
+
+            .character {
+                width: 50px;
+            }
+        }
+
+    }
+
+    .selector {
+        transition: all 1s ease;
+        flex: 1;
+        max-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        .universe {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &:not(:last-child):after {
+                content: "";
+                width: 3px;
+                height: 20px;
+                border-radius: 3px;
+                background: white;
+                margin-top: -15px;
+            }
+        }
+
+        .character {
+            width: 120px;
+            height: 70px;
+            margin-top: -15px;
+            background: black;
+            border-radius: 32px;
+            overflow: hidden;
+            outline: 2px solid var(--col-base);
+            border: 2px solid var(--col-base);
+            transition: all 0.4s ease;
+
+            > img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .char-bg {
+                transform: scale(2);
+                opacity: 0.5;
+            }
+
+            position: relative;
+            cursor: pointer;
+            @media (min-width: 1000px) {
+                &:hover {
+                    border: 2px solid color-mix(in srgb, var(--col-base), white 50%);
+                }
+
+                &.active {
+                    border: 2px solid white;
+                    height: 100px;
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+
+.character-panel,
+.character-panel .char > img,
+.character-panel .t2-bg-overlay {
+    will-change: transform, opacity, filter;
+}
+
+.mobile-controls {
+    display: none;
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 20;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 24px;
+    background: #0008;
+    backdrop-filter: blur(16px);
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff2;
+        border: none;
+        color: white;
+        font-size: 28px;
+        line-height: 1;
+        width: 48px;
+        height: 40px;
+        border-radius: 16px;
+        cursor: pointer;
+    }
+
+    .mobile-pages {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .mobile-counter {
+        min-width: 60px;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+@media (max-width: 1000px) {
+    .mobile-controls {
+        display: flex;
+    }
+
+    /* selector becomes a full screen grid overlay */
+    .character-page .selector {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 19;
+        max-height: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 16px;
+        padding-bottom: 96px;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        background: #000a;
+        backdrop-filter: blur(12px);
+
+        &.open {
+            display: flex;
+        }
+
+        .universe {
+            display: grid;
+
+            /* pushes the grid to the bottom without clipping when it overflows */
+
+            &:first-child {
+                margin-top: auto;
+            }
+
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+
+            &:not(:last-child):after {
+                display: none;
+            }
+        }
+
+        .character {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 2 / 1;
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    /* lock the page to the visible screen, so the url bar never moves things */
+    body:has(.character-page) {
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+
+    /* the carousel scrolls instead of the page, so the content below the art is reachable */
+    .character-page .carousel {
+        touch-action: pan-y;
+        overflow-x: clip;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+}
+
+
+.banner-image {
+    position: fixed;
+    top: 0;
+    left: -2vw;
+    width: calc(100vw + 4vw);
+    height: 100vh;
+    z-index: 92;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .character {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        transform: skewX(-10deg) scale(1.01);
+        img {
+            transform: skewX(10deg);
+        }
+        .t2-char-logo {
+            position: absolute;
+            top: 50%;
+            left: 1.5vw;
+            transform: translateY(-50%) skewX(10deg);
+            width: 10vw;
+            display: none;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            .char {
+                position: absolute;
+                top: 0;
+                right: -40px;
+                height: 100%;
+                aspect-ratio: 1401/934;
+
+                > img {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+    >*:nth-child(4n + 1) {
+        .t2-char-logo {
+            left: 3vw;
+        }
+    }
+}
