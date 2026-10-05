@@ -14,25 +14,59 @@ class Characters {
         if(this.currentPanel && this.currentPanel.getAttribute("character") === key) return;
 
         let oldPanel = this.currentPanel;
-        let imgs = [];
+        let imgs = {};
+        let tabs = {};
+        let changeTab = (name) => {
+            for(let tabName in tabs) {
+                tabs[tabName].classList.add("hidden");
+            }
+            tabs[name].classList.remove("hidden");
+        }
+
         let newPanel = D2.Div("character-panel character-" + key, () => {
             D2.Div("background", () => {
-                D2.Image("t2-bg", `/public/chars/${key}/bg.png`);
-                imgs["bg-overlay"] = D2.Image("t2-bg-overlay", `/public/chars/${key}/bg_overlay.png`);
+                D2.Image("t2-bg", `/public/chars/${key}/bg.webp`);
+                imgs["bg-overlay"] = D2.Image("t2-bg-overlay", `/public/chars/${key}/bg_overlay.webp`);
                 D2.Div("char", () => {
-                    imgs["char-bg-lower"] = D2.Image("t2-char-bg-lower", `/public/chars/${key}/char_bg_lower.png`);
-                    imgs["char-bg-higher"] = D2.Image("t2-char-bg-higher", `/public/chars/${key}/char_bg_higher.png`);
-                    imgs["char-img-lower"] = D2.Image("t2-char-img-lower", `/public/chars/${key}/char_img_lower.png`);
-                    imgs["char-img-higher"] = D2.Image("t2-char-img-higher", `/public/chars/${key}/char_img_higher.png`);
+                    imgs["char-bg-lower"] = D2.Image("t2-char-bg-lower", `/public/chars/${key}/char_bg_lower.webp`);
+                    imgs["char-bg-higher"] = D2.Image("t2-char-bg-higher", `/public/chars/${key}/char_bg_higher.webp`);
+                    imgs["char-img-lower"] = D2.Image("t2-char-img-lower", `/public/chars/${key}/char_img_lower.webp`);
+                    imgs["char-img-higher"] = D2.Image("t2-char-img-higher", `/public/chars/${key}/char_img_higher.webp`);
                 })
             });
             D2.Div("char-content", () => {
                 D2.Div("char-content-logo", () => {
                     imgs["logo"] = D2.Image("t2-char-logo", `/public/chars/${key}/logo.svg`);
-                    imgs["pronouns"] = D2.Text("h4", this.characters[key].species + " · " + this.characters[key].pronouns);
+                    imgs["pronouns"] = D2.Text("h4", this.characters[key].species + " · " + this.characters[key].pronouns, "char-pronouns");
                 })
                 imgs["content"] = D2.Div("char-content-inner", () => {
-                    D2.Text("h1", "test");
+                    tabs["main"] = D2.Div("tab main-tab", () => {
+                        D2.HtmlText("p", this.characters[key].description, "char-description");
+                        D2.Div("buttons", () => {
+                            let more = D2.Button("More Lore");
+                            let ref = D2.Button("Refsheet");
+                            more.addEventListener("click", () => {
+                                changeTab("more");
+                            });
+                            ref.addEventListener("click", () => {
+                                changeTab("ref");
+                            });
+                        })
+                    });
+                    tabs["more"] = D2.Div("tab tab-small-logo hidden", () => {
+                        let back = D2.Button("Back");
+                        back.addEventListener("click", () => {
+                            changeTab("main");
+                        })
+                        D2.Text("p", "more")
+                    })
+                    tabs["ref"] = D2.Div("tab tab-small-logo hidden", () => {
+                        let back = D2.Button("Back");
+                        back.addEventListener("click", () => {
+                            changeTab("main");
+                        })
+                        D2.Text("p", "ref")
+                    })
                 })
             })
         }); // PUT CONTENT HERE
@@ -64,7 +98,7 @@ class Characters {
         imgs["char-img-lower"].animate({
             maskPosition: ["100% 0", "0% 0"],
             scale: [1.1, 1]
-        }, { duration: 1100, easing: "cubic-bezier(0.65, 0, 0.35, 1)", fill: "both", delay: 800 });
+        }, { duration: 2000, easing: "cubic-bezier(0.65, 0, 0.35, 1)", fill: "both", delay: 200 });
 
 // character: last in, pops forward out of focus
         imgs["char-img-higher"].animate({
@@ -194,7 +228,7 @@ class Characters {
         });
     }
     async PreloadImages() {
-        let files = ["bg.png", "bg_overlay.png", "char_bg_lower.png", "char_bg_higher.png", "char_img_lower.png", "char_img_higher.png", "logo.svg"];
+        let files = ["bg.webp", "bg_overlay.webp", "char_bg_lower.webp", "char_bg_higher.webp", "char_img_lower.webp", "char_img_higher.webp", "logo.svg"];
         let loads = [];
 
         for(let key in this.characters) {
@@ -247,8 +281,8 @@ class Characters {
             this.selector.appendChild(D2.Div("universe", () => {
                 for(let character in universe.characters) {
                     let button = D2.Div("character", () => {
-                        D2.Image("char-bg", `/public/chars/${character}/bg.png`);
-                        D2.Image("char-img", `/public/chars/${character}/char_img_higher.png`);
+                        D2.Image("char-bg", `/public/chars/${character}/bg.webp`);
+                        D2.Image("char-img", `/public/chars/${character}/icon.webp`);
                     })
                     button.setAttribute("tooltip", universe.characters[character].name);
                     button.addEventListener("click", () => {
@@ -289,8 +323,34 @@ class Characters {
             requestAnimationFrame(UpdateParallax);
         }
         UpdateParallax();
+        //this.BannerImage();
+    }
+
+    BannerImage() {
+        let div = D2.Div("banner-image", () => {
+            let imgs = [];
+            for(let character in this.characters) {
+                let key = character;
+                let char = D2.Div("character", () => {
+                    D2.Div("background", () => {
+                        D2.Image("t2-bg", `/public/chars/${key}/bg.webp`);
+                        imgs["bg-overlay"] = D2.Image("t2-bg-overlay", `/public/chars/${key}/bg_overlay.webp`);
+                        D2.Div("char", () => {
+                            imgs["char-bg-lower"] = D2.Image("t2-char-bg-lower", `/public/chars/${key}/char_bg_lower.webp`);
+                            imgs["char-bg-higher"] = D2.Image("t2-char-bg-higher", `/public/chars/${key}/char_bg_higher.webp`);
+                            imgs["char-img-lower"] = D2.Image("t2-char-img-lower", `/public/chars/${key}/char_img_lower.webp`);
+                            imgs["char-img-higher"] = D2.Image("t2-char-img-higher", `/public/chars/${key}/char_img_higher.webp`);
+                        })
+                    });
+                    D2.Image("t2-char-logo", `/public/chars/${key}/logo.svg`);
+                })
+                char.style.setProperty("--mobile-offset", this.characters[key].mobile_offset ? this.characters[key].mobile_offset : "0px");
+            }
+        })
+        document.body.appendChild(div);
     }
 }
+
 
 let characters = new Characters();
 characters.Init();

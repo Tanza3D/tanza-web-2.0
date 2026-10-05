@@ -34,6 +34,7 @@ $random_desktop = rand(1, $random_desktop_range);
             <a href="/about">About / Projects <i class="iconoir-arrow-right"></i></a>
             <a href="/portfolio">Portfolio <i class="iconoir-arrow-right"></i></a>
             <a href="/gallery">Art Gallery <i class="iconoir-arrow-right"></i></a>
+            <a href="/characters">My Characters <i class="iconoir-arrow-right"></i></a>
         </div>
     </div>
     <div class="bottomleft">

@@ -1,3 +1,9 @@
+<?php
+\Site\Embed::SetDescription("All of the characters I've created over the years, including their lore and descriptions!");
+\Site\Embed::SetTitle("Tanza / Characters");
+\Site\Embed::SetBannerImage("/public/chars/banner.png?v2");
+
+?>
 <div class="character-page" id="character-page">
     <div id="main" class="carousel">
 

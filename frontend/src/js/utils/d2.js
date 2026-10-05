@@ -331,4 +331,12 @@ export class D2 {
             D2.Text("p", "Loading...");
         })
     }
+
+    static HtmlText(tag, text, className = "") {
+        const el = document.createElement(tag);
+        el.innerHTML = text;
+        if (className) el.className = className;
+        if (D2._currentParent) D2._currentParent.appendChild(el);
+        return el;
+    }
 }

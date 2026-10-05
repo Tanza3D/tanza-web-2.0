@@ -6,6 +6,7 @@
         "name": "Tanza",
         "species": "Protogen",
         "pronouns": "he/him",
+        "description": "A refugee from an alien planet, Tanza crash landed on earth with his friend, Tentel. After his friend got abducted by the government, Tanza set out on finding out where they took him, along the way obtaining clothes, meeting allies, and even some enemies.",
         "display": {
         },
         "mobile_offset": "-8%"
@@ -14,6 +15,7 @@
         "name": "Tentel",
         "species": "Protogen",
         "pronouns": "he/him",
+        "description": "A refugee from an alien planet, Tentel crash landed on earth with his friend, Tanza. After an argument, Tentel stormed off, ending up getting caught by guards and abducted.<br><br>After months of experimentation, he was turned into a weapon, with sharp, powerful tentacles, set loose to find, and destroy other alien life on earth.<br><br>Eventually, having been found by Tanza, and after confronting the people who experimented on him, they eventually found a cure, and assisted Tentel in reintegrating into life.",
         "display": {
         }
       },
@@ -21,6 +23,15 @@
         "name": "Ignira",
         "species": "Protogen",
         "pronouns": "she/her",
+        "description": "Started as an experiment by protogen fanatic, Kairo; Ignira is an AI(sci-fi ai)-powered life-like protogen robot, based on the furry species on the earth.<br><br>Kairo and Ignira end up catching wind of Tentel, and start hunting him, eventually running into Tanza and working alongside him closely.",
+        "display": {
+        }
+      },
+      "enthrox": {
+        "name": "Enthrox",
+        "species": "Protogen",
+        "pronouns": "he/him",
+        "description": "Coming soon...",
         "display": {
         }
       },
@@ -28,6 +39,7 @@
         "name": "David Asada",
         "species": "Human",
         "pronouns": "he/him",
+        "description": "A detective with the local police agency, David started investigating unusual homicides within the area, usually with large holes or unusual injuries. Eventually, on the way to the scene, he sees a blue alien figure running from the place of the crime. He reports it to the higher ups, and is in return told to disband the case and investigate no further.<br><br>David refuses to let it go, and continues investigating secretly, under the governments' nose, eventually meeting up with Tanza and the rest, and learning the truth of Tentel and his crimes.",
         "display": {
         }
       }
@@ -40,6 +52,7 @@
         "name": "Ragon",
         "species": "Lizard",
         "pronouns": "he/him",
+        "description": "A 800 year old ancient lizard, created by the gods, hopping around the world, finding a place he fits. As of 1984, situated right in the center of New York, running the biggest criminal empire the country's ever seen, secretly, from the shadows. With the help of his four lieutenants, who run day to day business, he's kept the organization stable since the 1800s, and keeps morals reasonable.",
         "display": {
           "t2-char-logo": {
             "height": "150px"
@@ -51,6 +64,7 @@
         "name": "Arvel",
         "species": "Bird",
         "pronouns": "he/him",
+        "description": "Coming Soon...",
         "display": {
         },
         "mobile_offset": "10%"
@@ -64,6 +78,7 @@
         "name": "Zerkon",
         "species": "Synth",
         "pronouns": "he/him",
+        "description": "Cool synth! This character, along with the others in this category (see the toolbar), don't have any lore.",
         "display": {
 
           "t2-char-logo": {
@@ -71,6 +86,13 @@
           }
         },
         "mobile_offset": "-12%"
+      },
+      "e16f": {
+        "name": "E16F",
+        "species": "Drone",
+        "pronouns": "he/it",
+        "description": "Drone. Lore coming soon!",
+        "display": {}
       }
     }
   }
